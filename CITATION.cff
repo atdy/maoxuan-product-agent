@@ -5,7 +5,7 @@ abstract: "A Chinese product decision Agent Skill distilled from the reasoning m
 authors:
   - family-names: "atdy"
     website: "https://github.com/atdy"
-version: 1.0.1
+version: 1.0.2
 date-released: 2026-07-10
 license: MIT
 repository-code: "https://github.com/atdy/maoxuan-product-agent"

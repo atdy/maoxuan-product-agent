@@ -2,6 +2,12 @@
 
 All notable changes to Maoxuan Product Agent are documented here.
 
+## [1.0.2] - 2026-07-10
+
+### Fixed
+
+- Clarified that the output quality gate accepts one candidate answer per file and reports aggregate example libraries explicitly.
+
 ## [1.0.1] - 2026-07-10
 
 ### Added
@@ -27,5 +33,6 @@ All notable changes to Maoxuan Product Agent are documented here.
 - Universal and platform-specific install paths.
 - Chinese GitHub Pages site, English index, machine-readable GEO files, and citation metadata.
 
+[1.0.2]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.2
 [1.0.1]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.1
 [1.0.0]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.0
