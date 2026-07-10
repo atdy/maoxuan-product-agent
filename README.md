@@ -286,6 +286,7 @@ Claude Code 或 Cursor：
 ├── CITATION.cff
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── SECURITY.md
 └── LICENSE
 ~~~
 
@@ -321,6 +322,7 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-
 - 遇到安装、触发、判断或输出问题，请使用 [问题反馈表单](https://github.com/atdy/maoxuan-product-agent/issues/new?template=bug_report.yml)。
 - 有适合加入测试集的真实场景，请提交 [产品案例与优化建议](https://github.com/atdy/maoxuan-product-agent/issues/new?template=product_case.yml)。
 - 准备提交代码或 Prompt 修改前，请先阅读 [贡献规范](CONTRIBUTING.md) 和 [社区行为准则](CODE_OF_CONDUCT.md)。
+- 发现提示注入、危险默认行为或供应链问题，请按 [安全策略](SECURITY.md) 私密报告。
 
 提交内容必须先脱敏。不要公开公司机密、用户隐私、账号密钥或受限制的内部数据。
 

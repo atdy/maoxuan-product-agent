@@ -135,6 +135,7 @@ See [self_test_report.md](evaluation/self_test_report.md), [forward_test_report.
 - Report installation, triggering, judgment, or output problems with the [Chinese-first bug form](https://github.com/atdy/maoxuan-product-agent/issues/new?template=bug_report.yml).
 - Submit a sanitized real-world scenario through the [product case form](https://github.com/atdy/maoxuan-product-agent/issues/new?template=product_case.yml).
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [community code of conduct](CODE_OF_CONDUCT.md) before opening a pull request.
+- Report prompt injection, unsafe defaults, or supply-chain concerns privately under the [security policy](SECURITY.md).
 
 Do not publish company secrets, user data, credentials, or restricted internal metrics.
 

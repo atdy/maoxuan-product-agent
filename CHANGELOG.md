@@ -8,6 +8,7 @@ All notable changes to Maoxuan Product Agent are documented here.
 
 - Chinese-first issue forms for reproducible Agent problems and sanitized real-world product cases.
 - A pull request checklist and project-specific community code of conduct.
+- A security policy covering Skill, installer, validation, Pages, and supply-chain risks.
 
 ### Changed
 

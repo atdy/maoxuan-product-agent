@@ -301,6 +301,7 @@ def validate_repository_package() -> None:
         ROOT / "CITATION.cff",
         ROOT / "CODE_OF_CONDUCT.md",
         ROOT / "CONTRIBUTING.md",
+        ROOT / "SECURITY.md",
         ROOT / "LICENSE",
         ROOT / ".github/ISSUE_TEMPLATE/bug_report.yml",
         ROOT / ".github/ISSUE_TEMPLATE/product_case.yml",
@@ -329,6 +330,7 @@ def validate_repository_package() -> None:
         ".github/ISSUE_TEMPLATE/config.yml": ("blank_issues_enabled: false", "产品决策案例库"),
         ".github/pull_request_template.md": ("## 解决的真实问题", "./scripts/validate.sh", "默认输出仍使用现代中文产品语言"),
         "CODE_OF_CONDUCT.md": ("## 期望行为", "## 不可接受行为", "## 报告与处理"),
+        "SECURITY.md": ("## 私密报告漏洞", "security/advisories/new", "## 安全范围"),
     }
     for relative_path, markers in collaboration_markers.items():
         source = (ROOT / relative_path).read_text(encoding="utf-8")
