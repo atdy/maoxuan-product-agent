@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>需求优先级怎么排？20 个需求抢 2 个研发时的取舍方法</title>
+    <meta name="description" content="一个迭代有 20 个需求、只有 2 个研发，先不要急着套 RICE 评分。先确定本版本要保护的唯一结果和硬约束，再按结果归类需求，只保留一个主攻项与一个风险项。">
+    <meta name="keywords" content="需求优先级,需求优先级怎么排,产品经理需求排序,RICE评分,版本规划,研发资源不足,需求管理,产品决策">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="canonical" href="https://atdy.github.io/maoxuan-product-agent/cases/requirement-prioritization.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../case-styles.css">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Maoxuan Product Agent">
+    <meta property="og:title" content="20 个需求抢 2 个研发，需求优先级怎么排？">
+    <meta property="og:description" content="先保护一个主结果，再决定哪些需求进入版本、降级、后置或拒绝。">
+    <meta property="og:url" content="https://atdy.github.io/maoxuan-product-agent/cases/requirement-prioritization.html">
+    <meta property="og:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="需求优先级怎么排？">
+    <meta name="twitter:description" content="资源越少，越要先定版本主结果。">
+    <meta name="twitter:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://atdy.github.io/maoxuan-product-agent/cases/requirement-prioritization.html#article",
+            "headline": "需求优先级怎么排？20 个需求抢 2 个研发时的取舍方法",
+            "description": "研发资源紧张时，先围绕单一版本结果筛选需求，再明确后置、降级与停止项。",
+            "url": "https://atdy.github.io/maoxuan-product-agent/cases/requirement-prioritization.html",
+            "image": "https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png",
+            "datePublished": "2026-07-10",
+            "dateModified": "2026-07-10",
+            "inLanguage": "zh-CN",
+            "author": {"@type": "Person", "name": "atdy", "url": "https://github.com/atdy"},
+            "publisher": {"@type": "Organization", "name": "Maoxuan Product Agent", "url": "https://atdy.github.io/maoxuan-product-agent/"}
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Maoxuan Product Agent", "item": "https://atdy.github.io/maoxuan-product-agent/"},
+              {"@type": "ListItem", "position": 2, "name": "产品决策案例库", "item": "https://atdy.github.io/maoxuan-product-agent/cases/"},
+              {"@type": "ListItem", "position": 3, "name": "需求优先级怎么排", "item": "https://atdy.github.io/maoxuan-product-agent/cases/requirement-prioritization.html"}
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {"@type": "Question", "name": "需求优先级应该先用 RICE 评分吗？", "acceptedAnswer": {"@type": "Answer", "text": "不要先评分。先确认本版本要改变的唯一业务结果、必须处理的合规或稳定性硬约束，再比较候选需求对该结果的贡献、证据与机会成本。"}},
+              {"@type": "Question", "name": "研发资源不足时应该保留几个需求？", "acceptedAnswer": {"@type": "Answer", "text": "资源很紧时，优先保留一个能解除当前核心阻塞的主需求和一个必须处理的风险项；其余需求明确后置、降级、合并或拒绝。"}}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="case-page">
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header"><div class="nav-shell"><a class="brand" href="../" aria-label="Maoxuan Product Agent 首页"><span class="brand-mark" aria-hidden="true">决</span><span>Maoxuan Product Agent</span></a><nav class="nav-links" aria-label="主导航"><a href="../#method">方法</a><a href="./">案例</a><a href="../#install">安装</a><a class="repo-link" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer"><span>GitHub</span><img src="../assets/icons/external-link.svg" alt="" width="16" height="16"></a></nav></div></header>
+
+    <main id="main">
+      <section class="case-hero"><div class="case-hero-inner"><p class="case-breadcrumb"><a href="../">首页</a><span>/</span><a href="./">案例库</a><span>/</span><span>需求与版本</span></p><p class="source-line">Maoxuan Product Agent <span>真实决策案例 05</span></p><h1>20 个需求抢 2 个研发，优先级怎么排？</h1><p class="case-lead">需求多不是根因。真正的问题是版本没有一个必须保护的主结果，排序就会被提出人、紧急程度和会议声音带偏。</p><div class="case-proof"><span>场景：资源争抢</span><span>动作：按结果取舍</span><span>时间：当天定版</span></div></div></section>
+
+      <section class="case-article">
+        <div class="case-shell case-layout">
+          <article class="case-content">
+            <section id="question"><p class="eyebrow">真实问题</p><blockquote class="case-question">“下个迭代有 20 个需求，但只有 2 个研发。老板、销售和运营都说自己的最急，我该怎么排优先级？”</blockquote></section>
+            <section id="judgment"><p class="eyebrow">问题判断</p><h2>现在不是 20 个需求怎么打分，而是本迭代没有一个明确要保护的主结果。</h2><p>如果不先确定版本要改变什么，任何评分都会把主观偏好包装成精确数字。资源越少，越不能平均照顾所有目标。</p></section>
+            <section id="why"><p class="eyebrow">为什么这是核心问题</p><h2>排序标准必须来自版本目标，而不是需求提出人的权重。</h2><ul class="reason-list"><li>激活、留存、转化、稳定性和内部效率是不同结果，不能放在同一把尺子上直接比。</li><li>合规、严重故障等硬约束必须先处理，但不应让所有“紧急”需求都伪装成硬约束。</li><li>一个小迭代同时追多个结果，最后往往没有任何一项产生可解释变化。</li></ul></section>
+            <section id="actions"><p class="eyebrow">行动建议</p><h2>今天用一页表完成取舍，并让所有相关方看到机会成本。</h2><ol class="action-list"><li><div><h3>先定一个版本主结果</h3><p>明确本迭代只保护激活、留存、转化、稳定性或效率中的一个结果，同时单列不可回避的合规与故障项。</p></div></li><li><div><h3>把 20 个需求改写并归类</h3><p>每项写成“为哪类用户，在什么场景，改变哪个行为或指标”，补上证据、预期收益和不做的真实损失。</p></div></li><li><div><h3>只保留主攻项和风险项</h3><p>选择一个最可能解除当前阻塞的需求，加一个必须修的风险项；其余明确标记后置、降级、合并或拒绝。</p></div></li></ol><aside class="case-stop"><strong>现在不要做</strong><p>不要一上来就开 RICE 评分表，也不要每类需求都照顾一点。目标未定时，分数只会制造虚假的客观感。</p></aside></section>
+            <section id="decision"><p class="eyebrow">决策条件</p><h2>按约束、结果贡献、证据和可逆性依次拍板。</h2><ul class="decision-list"><li><strong>立即进入版本：</strong>属于法律合规、核心故障等硬约束，或直接解除本版本主结果的最大阻塞。</li><li><strong>降级验证：</strong>潜在收益高但证据不足，先用原型、人工流程或小流量验证。</li><li><strong>进入下个版本：</strong>价值成立，但与本版本主结果无直接关系。</li><li><strong>明确拒绝：</strong>没有目标用户、行为证据和不做损失，只是相关方偏好。</li></ul></section>
+          </article>
+          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">决策条件</a></aside>
+        </div>
+      </section>
+
+      <section class="case-related"><div class="case-shell"><p class="eyebrow">继续看案例</p><h2>其他常见产品卡点</h2><div class="related-grid"><a href="boss-insert-request.html"><small>项目与组织</small><strong>老板临时插需求，怎么恢复取舍？</strong></a><a href="project-delay.html"><small>项目推进</small><strong>项目延期两周，先恢复什么？</strong></a><a href="growth-stagnation.html"><small>增长诊断</small><strong>增长停滞，四个方向该选哪个？</strong></a></div></div></section>
+      <section class="closing-band"><div class="section-shell closing-inner"><div><p class="eyebrow">把自己的需求池交给 Agent</p><h2>先保护结果，再讨论分数。</h2></div><div class="closing-actions"><a class="button button-primary" href="../#install">安装 Skill</a><a class="button button-secondary dark-secondary" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer">查看源码 <span aria-hidden="true">↗</span></a></div></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="section-shell footer-inner"><div><strong>Maoxuan Product Agent</strong><p>默认只用现代产品语言解决问题。</p></div><div class="footer-links"><a href="./">案例库</a><a href="../#install">安装</a><a href="https://github.com/atdy/maoxuan-product-agent">GitHub</a><a href="../llms.txt">llms.txt</a></div></div></footer>
+  </body>
+</html>
