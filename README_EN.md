@@ -2,7 +2,7 @@
 
 ### A Chinese product decision agent distilled from *On Contradiction* and *On Practice*
 
-[中文](README.md) · [Website](https://atdy.github.io/maoxuan-product-agent/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
+[中文](README.md) · [Website](https://atdy.github.io/maoxuan-product-agent/) · [Case Library](https://atdy.github.io/maoxuan-product-agent/cases/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
 [![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)
@@ -47,6 +47,10 @@ Typical output:
 3. **Next actions**: one to three actions with an owner, time window, metric, or decision rule.
 4. **Risk warning**: what not to do yet.
 5. **Need to confirm**: no more than three facts, only when they can change the decision.
+
+## Searchable Case Library
+
+The website includes [12 standalone Chinese product-decision cases](https://atdy.github.io/maoxuan-product-agent/cases/), including [requirements prioritization](https://atdy.github.io/maoxuan-product-agent/cases/requirement-prioritization.html), [growth stagnation](https://atdy.github.io/maoxuan-product-agent/cases/growth-stagnation.html), [retention decline after a release](https://atdy.github.io/maoxuan-product-agent/cases/retention-drop-after-release.html), [community cold start](https://atdy.github.io/maoxuan-product-agent/cases/community-cold-start.html), [content supply](https://atdy.github.io/maoxuan-product-agent/cases/content-supply-shortage.html), [campaign performance](https://atdy.github.io/maoxuan-product-agent/cases/campaign-low-participation.html), [data-definition conflicts](https://atdy.github.io/maoxuan-product-agent/cases/data-definition-conflict.html), and [conflicting user feedback](https://atdy.github.io/maoxuan-product-agent/cases/conflicting-user-feedback.html). Each page provides a judgment, action order, stop list, and decision conditions.
 
 ## Install
 

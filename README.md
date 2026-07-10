@@ -2,7 +2,7 @@
 
 ### 从《矛盾论》《实践论》蒸馏出来的中文产品工作 Agent
 
-[在线介绍](https://atdy.github.io/maoxuan-product-agent/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [English](README_EN.md) · [安装](#安装) · [真实案例](#回答长什么样) · [设计审计](evaluation/source_reading_audit.md)
+[在线介绍](https://atdy.github.io/maoxuan-product-agent/) · [12 个决策案例](https://atdy.github.io/maoxuan-product-agent/cases/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [English](README_EN.md) · [安装](#安装) · [回答示例](#回答长什么样) · [设计审计](evaluation/source_reading_audit.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
 [![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)
@@ -142,6 +142,15 @@ Agent：
 风险提醒
 不要先上全站活动，也不要只看总 DAU 做判断。
 ~~~
+
+### 直接看 12 个真实决策案例
+
+- **需求与项目**：[老板临时插需求](https://atdy.github.io/maoxuan-product-agent/cases/boss-insert-request.html) · [20 个需求怎么排优先级](https://atdy.github.io/maoxuan-product-agent/cases/requirement-prioritization.html) · [项目延期两周](https://atdy.github.io/maoxuan-product-agent/cases/project-delay.html)
+- **增长与实验**：[增长停滞](https://atdy.github.io/maoxuan-product-agent/cases/growth-stagnation.html) · [DAU 连续下滑](https://atdy.github.io/maoxuan-product-agent/cases/dau-decline.html) · [新版本后留存下降](https://atdy.github.io/maoxuan-product-agent/cases/retention-drop-after-release.html) · [A/B Test 点击涨但订单不涨](https://atdy.github.io/maoxuan-product-agent/cases/ab-test-clicks-no-orders.html)
+- **运营与供给**：[社区冷启动](https://atdy.github.io/maoxuan-product-agent/cases/community-cold-start.html) · [内容供给不足](https://atdy.github.io/maoxuan-product-agent/cases/content-supply-shortage.html) · [活动参与率低](https://atdy.github.io/maoxuan-product-agent/cases/campaign-low-participation.html)
+- **数据与用户**：[数据口径不一致](https://atdy.github.io/maoxuan-product-agent/cases/data-definition-conflict.html) · [用户反馈互相矛盾](https://atdy.github.io/maoxuan-product-agent/cases/conflicting-user-feedback.html)
+
+每个页面都给出问题判断、行动顺序、停止项和切换条件。完整入口见 [产品决策案例库](https://atdy.github.io/maoxuan-product-agent/cases/)。
 
 ## 适合谁
 

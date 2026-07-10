@@ -294,6 +294,10 @@ def validate_repository_package() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     require(INSTALL_COMMAND in readme, "README is missing the verified install command")
     require("《矛盾论》《实践论》" in readme, "README does not foreground the methodology source")
+    require(f"{CANONICAL}cases/" in readme, "README is missing the public case library")
+
+    readme_en = (ROOT / "README_EN.md").read_text(encoding="utf-8")
+    require(f"{CANONICAL}cases/" in readme_en, "English README is missing the public case library")
 
     agent_metadata = (ROOT / "product-decision-agent/agents/openai.yaml").read_text(encoding="utf-8")
     require("allow_implicit_invocation: true" in agent_metadata, "Implicit invocation must stay enabled")
