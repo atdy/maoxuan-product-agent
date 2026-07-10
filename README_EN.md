@@ -68,6 +68,10 @@ List the available skill without installing it:
 npx skills add atdy/maoxuan-product-agent --list
 ```
 
+### Direct download
+
+Without Node.js or Git, download [`product-decision-agent-v1.0.3.zip`](https://github.com/atdy/maoxuan-product-agent/releases/download/v1.0.3/product-decision-agent-v1.0.3.zip). The archive contains only the standard skill directory; extract it into the Skills directory used by your agent.
+
 ### Repository installer
 
 ```bash

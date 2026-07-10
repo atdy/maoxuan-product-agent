@@ -51,7 +51,7 @@ npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent
 使用 product-decision-agent 帮我判断：A/B Test 点击率涨了 12%，但订单没涨，要不要全量？
 ~~~
 
-安装命令已经在隔离环境中做过端到端验证。也可以继续使用仓库自带的 [安装脚本](#一键安装) 或手动安装。
+安装命令已经在隔离环境中做过端到端验证。不使用 Node.js 或 Git 时，可以直接下载 [v1.0.3 独立 Skill 包](https://github.com/atdy/maoxuan-product-agent/releases/download/v1.0.3/product-decision-agent-v1.0.3.zip)，解压后按[手动安装](#手动安装)放入对应目录。
 
 项目已被 [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent)、[Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent)、安全审计通过且质量评分 83/100 的 [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent)，以及 4.2 万 Star 的 [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills/tree/main/skills/product-decision-agent) 独立收录；四个目录均回链到本仓库，可直接核对来源与安全信息。
 
@@ -178,6 +178,10 @@ npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent
 ~~~bash
 npx skills add atdy/maoxuan-product-agent --list
 ~~~
+
+### 直接下载
+
+不使用 Node.js 或 Git 时，下载 [product-decision-agent-v1.0.3.zip](https://github.com/atdy/maoxuan-product-agent/releases/download/v1.0.3/product-decision-agent-v1.0.3.zip)。压缩包只包含标准 Skill 目录，解压后按[手动安装](#手动安装)放入对应 Agent 的 Skills 目录。
 
 ### 一键安装
 
