@@ -131,7 +131,14 @@ Agent：
 
 ### 一键安装
 
-在仓库根目录运行：
+先克隆仓库：
+
+~~~bash
+git clone https://github.com/atdy/maoxuan-product-agent.git
+cd maoxuan-product-agent
+~~~
+
+然后运行：
 
 ~~~bash
 # 安装到当前用户的 Codex
