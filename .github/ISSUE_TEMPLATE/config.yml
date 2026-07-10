@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: 使用问题与产品讨论
+    url: https://github.com/atdy/maoxuan-product-agent/discussions
+    about: 分享真实产品问题、使用反馈和改进建议；可复现缺陷请继续使用 Issues。
   - name: 使用与安装文档
     url: https://github.com/atdy/maoxuan-product-agent#安装
     about: 先查看 Codex、Claude Code、Cursor 和通用 Agent 的安装方法。

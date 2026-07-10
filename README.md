@@ -2,7 +2,7 @@
 
 ### 从《矛盾论》《实践论》蒸馏出来的中文产品工作 Agent
 
-[在线介绍](https://atdy.github.io/maoxuan-product-agent/) · [12 个决策案例](https://atdy.github.io/maoxuan-product-agent/cases/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [English](README_EN.md) · [安装](#安装) · [回答示例](#回答长什么样) · [设计审计](evaluation/source_reading_audit.md)
+[在线介绍](https://atdy.github.io/maoxuan-product-agent/) · [12 个决策案例](https://atdy.github.io/maoxuan-product-agent/cases/) · [讨论区](https://github.com/atdy/maoxuan-product-agent/discussions) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [English](README_EN.md) · [安装](#安装) · [回答示例](#回答长什么样) · [设计审计](evaluation/source_reading_audit.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
 [![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)

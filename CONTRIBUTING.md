@@ -2,6 +2,8 @@
 
 这个项目维护的是一个产品决策 Agent，不是原文知识库。提交修改时，优先证明它能让真实产品问题得到更准确、更短、更可执行的回答。
 
+真实使用案例、方法边界和功能建议优先放到 [Discussions](https://github.com/atdy/maoxuan-product-agent/discussions)；可复现缺陷继续使用 Issues。
+
 ## 修改原则
 
 - 默认输出继续使用现代中文产品语言，不暴露原文、人物、历史语境或政治化表达。
