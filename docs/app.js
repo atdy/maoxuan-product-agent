@@ -2,7 +2,19 @@
   const copyText = async (text) => {
     if (navigator.clipboard?.writeText) {
       try {
-        await navigator.clipboard.writeText(text);
+        await new Promise((resolve, reject) => {
+          const timeout = window.setTimeout(() => reject(new Error("Clipboard write timed out")), 900);
+          navigator.clipboard.writeText(text).then(
+            () => {
+              window.clearTimeout(timeout);
+              resolve();
+            },
+            (error) => {
+              window.clearTimeout(timeout);
+              reject(error);
+            },
+          );
+        });
         return;
       } catch {
         // Fall through for browsers that expose Clipboard API but deny writes.
@@ -61,15 +73,19 @@
       const code = button.closest(".code-line")?.querySelector("code")?.textContent?.trim();
       if (!code) return;
 
+      const icon = button.querySelector("img");
+      const previousSrc = icon?.getAttribute("src");
+      const previousTitle = button.title;
+      const previousLabel = button.getAttribute("aria-label");
+      button.title = button.dataset.copyingTitle || "正在复制";
+      button.setAttribute("aria-label", button.dataset.copyingLabel || "正在复制命令");
+
       try {
         await copyText(code);
-        const icon = button.querySelector("img");
-        const previousSrc = icon?.getAttribute("src");
-        const previousTitle = button.title;
-        const previousLabel = button.getAttribute("aria-label");
-        button.title = "已复制";
-        button.setAttribute("aria-label", "命令已复制");
-        if (icon) icon.setAttribute("src", "assets/icons/check.svg");
+        const checkSrc = previousSrc?.replace(/copy\.svg$/, "check.svg");
+        button.title = button.dataset.copiedTitle || "已复制";
+        button.setAttribute("aria-label", button.dataset.copiedLabel || "命令已复制");
+        if (icon && checkSrc) icon.setAttribute("src", checkSrc);
 
         window.setTimeout(() => {
           button.title = previousTitle;
@@ -77,7 +93,8 @@
           if (icon && previousSrc) icon.setAttribute("src", previousSrc);
         }, 1600);
       } catch {
-        button.title = "请手动复制";
+        button.title = button.dataset.fallbackTitle || "请手动复制";
+        button.setAttribute("aria-label", button.dataset.fallbackLabel || "请手动复制命令");
       }
     });
   });

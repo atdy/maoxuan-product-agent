@@ -6,12 +6,14 @@ All notable changes to Maoxuan Product Agent are documented here.
 
 ### Added
 
+- A dedicated English GitHub Pages landing page with bilingual hreflang links, structured data, visible FAQ content, and machine-readable discovery links.
 - Chinese-first issue forms for reproducible Agent problems and sanitized real-world product cases.
 - A pull request checklist and project-specific community code of conduct.
 - A security policy covering Skill, installer, validation, Pages, and supply-chain risks.
 
 ### Changed
 
+- Made install-command copy feedback path-aware and bilingual, with a clear fallback when Clipboard API access is denied or stalls.
 - Extended publication validation to enforce the repository's community health files.
 
 ## [1.0.3] - 2026-07-10

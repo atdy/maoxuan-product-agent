@@ -2,7 +2,7 @@
 
 ### A Chinese product decision agent distilled from *On Contradiction* and *On Practice*
 
-[中文](README.md) · [Website](https://atdy.github.io/maoxuan-product-agent/) · [Case Library](https://atdy.github.io/maoxuan-product-agent/cases/) · [Discussions](https://github.com/atdy/maoxuan-product-agent/discussions) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
+[中文](README.md) · [English Website](https://atdy.github.io/maoxuan-product-agent/en/) · [Case Library](https://atdy.github.io/maoxuan-product-agent/cases/) · [Discussions](https://github.com/atdy/maoxuan-product-agent/discussions) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Skillstore](https://skillstore.io/skills/atdy-product-decision-agent) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
 [![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)

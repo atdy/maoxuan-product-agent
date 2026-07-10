@@ -15,6 +15,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 CANONICAL = "https://atdy.github.io/maoxuan-product-agent/"
+EN_CANONICAL = f"{CANONICAL}en/"
 INSTALL_COMMAND = (
     "npx skills add atdy/maoxuan-product-agent --skill product-decision-agent "
     "--agent codex claude-code cursor -g -y"
@@ -162,6 +163,15 @@ def validate_page() -> None:
 
     canonical = next((item.get("href") for item in parser.links if item.get("rel") == "canonical"), None)
     require(canonical == CANONICAL, "Canonical URL is incorrect")
+    english_alternate = next(
+        (
+            item.get("href")
+            for item in parser.links
+            if item.get("rel") == "alternate" and item.get("hreflang") == "en"
+        ),
+        None,
+    )
+    require(english_alternate == EN_CANONICAL, "English alternate URL is incorrect")
 
     for asset in parser.assets:
         parsed = urlparse(asset)
@@ -175,6 +185,77 @@ def validate_page() -> None:
     require({"SoftwareApplication", "HowTo", "FAQPage"} <= types, "JSON-LD graph is incomplete")
     faq = next(item for item in graph if item.get("@type") == "FAQPage")
     require(len(faq.get("mainEntity", [])) >= 6, "JSON-LD FAQ needs at least six questions")
+
+
+def validate_english_page() -> None:
+    path = DOCS / "en/index.html"
+    require(path.exists(), "English project page is missing")
+    source = path.read_text(encoding="utf-8")
+    parser = PageParser()
+    parser.feed(source)
+
+    title = "".join(parser.title_parts).strip()
+    description = meta_content(parser, name="description")
+    visible_text = " ".join("".join(parser.visible_text_parts).split())
+    require("Maoxuan Product Agent" in title, "English page title is missing the product name")
+    require("AI Product Manager" in title, "English page title is missing the product search intent")
+    require(len(description) >= 120, "English meta description is too short")
+    require(meta_content(parser, prop="og:image").endswith("/assets/social-preview.png"), "English Open Graph image is missing")
+    require(meta_content(parser, name="twitter:card") == "summary_large_image", "English Twitter large card is missing")
+
+    canonical = next((item.get("href") for item in parser.links if item.get("rel") == "canonical"), None)
+    require(canonical == EN_CANONICAL, "English canonical URL is incorrect")
+    alternates = {
+        item.get("hreflang"): item.get("href")
+        for item in parser.links
+        if item.get("rel") == "alternate"
+    }
+    require(alternates.get("en") == EN_CANONICAL, "English hreflang self-reference is incorrect")
+    require(alternates.get("zh-CN") == CANONICAL, "Chinese hreflang reference is incorrect")
+    require(alternates.get("x-default") == EN_CANONICAL, "English x-default reference is incorrect")
+
+    for marker in (
+        "On Practice",
+        "On Contradiction",
+        "Simplified Chinese",
+        "Codex",
+        "Claude Code",
+        "Cursor",
+        "36 recurring scenarios",
+        INSTALL_COMMAND,
+    ):
+        require(marker in visible_text, f"English page is missing product evidence: {marker}")
+
+    require(len(parser.json_ld) == 1, "Expected one English JSON-LD graph")
+    graph = json.loads(parser.json_ld[0]).get("@graph", [])
+    types = {item.get("@type") for item in graph}
+    require({"SoftwareApplication", "HowTo", "FAQPage"} <= types, "English JSON-LD graph is incomplete")
+    software = next(item for item in graph if item.get("@type") == "SoftwareApplication")
+    faq = next(item for item in graph if item.get("@type") == "FAQPage")
+    require(software.get("url") == EN_CANONICAL, "English SoftwareApplication URL is incorrect")
+    require(len(faq.get("mainEntity", [])) >= 6, "English JSON-LD FAQ needs at least six questions")
+    for entity in faq.get("mainEntity", []):
+        question = entity.get("name", "")
+        answer = entity.get("acceptedAnswer", {}).get("text", "")
+        require(question in visible_text, "English FAQ question is not visible")
+        require(answer in visible_text, "English FAQ answer is not visible")
+
+    docs_root = DOCS.resolve()
+    for asset in parser.assets:
+        parsed = urlparse(asset)
+        if parsed.scheme or asset.startswith("#") or asset.startswith("/"):
+            continue
+        target = (path.parent / parsed.path).resolve()
+        require(target == docs_root or docs_root in target.parents, f"English asset escapes docs: {asset}")
+        require(target.exists(), f"Missing English page asset: {asset}")
+
+    for href in parser.anchors:
+        parsed = urlparse(href)
+        if parsed.scheme or href.startswith("#") or href.startswith("/"):
+            continue
+        target = (path.parent / parsed.path).resolve()
+        require(target == docs_root or docs_root in target.parents, f"English link escapes docs: {href}")
+        require(target.exists(), f"Broken English internal link: {href}")
 
 
 def validate_assets() -> None:
@@ -268,6 +349,7 @@ def validate_discovery_files() -> None:
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     locations = [node.text for node in sitemap.findall("sm:url/sm:loc", namespace)]
     require(CANONICAL in locations, "Canonical URL is missing from sitemap.xml")
+    require(EN_CANONICAL in locations, "English URL is missing from sitemap.xml")
     for expected in CASE_PAGES.values():
         require(expected["url"] in locations, f"Case URL is missing from sitemap.xml: {expected['url']}")
 
@@ -278,6 +360,7 @@ def validate_discovery_files() -> None:
     llms = (DOCS / "llms.txt").read_text(encoding="utf-8")
     llms_full = (DOCS / "llms-full.txt").read_text(encoding="utf-8")
     require(CANONICAL in llms, "llms.txt is missing the canonical URL")
+    require(EN_CANONICAL in llms, "llms.txt is missing the English project page")
     require(INSTALL_COMMAND in llms, "llms.txt is missing the verified install command")
     require("Core reasoning behavior" in llms_full, "llms-full.txt is missing the reasoning description")
     require("Frequently asked questions" in llms_full, "llms-full.txt is missing FAQ content")
@@ -345,6 +428,7 @@ def validate_repository_package() -> None:
         "CITATION.cff": f"version: {version}",
         "CHANGELOG.md": f"## [{version}]",
         "docs/index.html": f'"softwareVersion": "{version}"',
+        "docs/en/index.html": f'"softwareVersion": "{version}"',
         "docs/llms-full.txt": f"Current release: {version}",
     }
     for relative_path, marker in version_files.items():
@@ -360,6 +444,7 @@ def validate_repository_package() -> None:
 
 def main() -> None:
     validate_page()
+    validate_english_page()
     validate_assets()
     validate_case_pages()
     validate_discovery_files()

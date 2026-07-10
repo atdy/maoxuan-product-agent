@@ -1,6 +1,7 @@
 # Maoxuan Product Agent: machine-readable project guide
 
 Canonical URL: https://atdy.github.io/maoxuan-product-agent/
+English project page: https://atdy.github.io/maoxuan-product-agent/en/
 Source repository: https://github.com/atdy/maoxuan-product-agent
 Skills directory: https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent
 Independent listing: https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent
