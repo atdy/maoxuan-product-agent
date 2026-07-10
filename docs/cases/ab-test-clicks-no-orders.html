@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A/B Test 点击率上涨但订单不涨，要不要全量？</title>
+    <meta name="description" content="A/B Test 新版按钮点击率提升 12%，但下单率没有变化。暂时不要全量，先拆商品页停留、加购、支付发起和支付成功，找到点击后的核心阻塞。">
+    <meta name="keywords" content="A/B Test结果分析,点击率上涨订单不涨,AB测试要不要全量,转化率优化,漏斗分析,护栏指标,产品实验">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="canonical" href="https://atdy.github.io/maoxuan-product-agent/cases/ab-test-clicks-no-orders.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../case-styles.css">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Maoxuan Product Agent">
+    <meta property="og:title" content="A/B Test 点击率上涨，订单不涨，要不要全量？">
+    <meta property="og:description" content="入口指标变好不等于业务结果变好。继续拆点击后的漏斗，再决定全量。">
+    <meta property="og:url" content="https://atdy.github.io/maoxuan-product-agent/cases/ab-test-clicks-no-orders.html">
+    <meta property="og:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A/B Test 点击率涨了，为什么还不能全量？">
+    <meta name="twitter:description" content="先看主指标和后链路，不把点击率当业务胜利。">
+    <meta name="twitter:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://atdy.github.io/maoxuan-product-agent/cases/ab-test-clicks-no-orders.html#article",
+            "headline": "A/B Test 点击率上涨但订单不涨，要不要全量？",
+            "description": "点击率提升但下单率不变时的实验判断、漏斗拆解和全量条件。",
+            "url": "https://atdy.github.io/maoxuan-product-agent/cases/ab-test-clicks-no-orders.html",
+            "image": "https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png",
+            "datePublished": "2026-07-10",
+            "dateModified": "2026-07-10",
+            "inLanguage": "zh-CN",
+            "author": {"@type": "Person", "name": "atdy", "url": "https://github.com/atdy"},
+            "publisher": {"@type": "Organization", "name": "Maoxuan Product Agent", "url": "https://atdy.github.io/maoxuan-product-agent/"}
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Maoxuan Product Agent", "item": "https://atdy.github.io/maoxuan-product-agent/"},
+              {"@type": "ListItem", "position": 2, "name": "产品决策案例库", "item": "https://atdy.github.io/maoxuan-product-agent/cases/"},
+              {"@type": "ListItem", "position": 3, "name": "A/B Test 点击上涨但订单不涨", "item": "https://atdy.github.io/maoxuan-product-agent/cases/ab-test-clicks-no-orders.html"}
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {"@type": "Question", "name": "A/B Test 点击率显著上涨就可以全量吗？", "acceptedAnswer": {"@type": "Answer", "text": "不一定。全量标准应由主业务指标和护栏指标决定。点击率上涨但订单不涨，只证明入口更显眼，没有证明用户价值或收入提升。"}},
+              {"@type": "Question", "name": "点击率上涨但转化率不变应该查什么？", "acceptedAnswer": {"@type": "Answer", "text": "继续拆点击后的商品页停留、加购、支付发起和支付成功，并检查价格、信任、库存、权益和支付流程。"}}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="case-page">
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header"><div class="nav-shell"><a class="brand" href="../" aria-label="Maoxuan Product Agent 首页"><span class="brand-mark" aria-hidden="true">决</span><span>Maoxuan Product Agent</span></a><nav class="nav-links" aria-label="主导航"><a href="../#method">方法</a><a href="./">案例</a><a href="../#install">安装</a><a class="repo-link" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer"><span>GitHub</span><img src="../assets/icons/external-link.svg" alt="" width="16" height="16"></a></nav></div></header>
+
+    <main id="main">
+      <section class="case-hero"><div class="case-hero-inner"><p class="case-breadcrumb"><a href="../">首页</a><span>/</span><a href="./">案例库</a><span>/</span><span>实验与转化</span></p><p class="source-line">Maoxuan Product Agent <span>真实决策案例 03</span></p><h1>A/B Test 点击率上涨，订单不涨，要不要全量？</h1><p class="case-lead">暂时不要。新版只证明更多人点了按钮，没有证明更多人完成购买。实验结论必须回到主指标。</p><div class="case-proof"><span>点击率：+12%</span><span>下单率：无变化</span><span>结论：不全量</span></div></div></section>
+
+      <section class="case-article">
+        <div class="case-shell case-layout">
+          <article class="case-content">
+            <section id="question"><p class="eyebrow">真实问题</p><blockquote class="case-question">“A/B Test 显示新版按钮点击率高 12%，但下单率没变，要不要全量？”</blockquote></section>
+
+            <section id="judgment"><p class="eyebrow">问题判断</p><h2>暂时不要全量，新版只证明了更多点击，没有证明更多订单。</h2><p>按钮更显眼可能提高点击，但业务真正需要的是购买结果。下单率不变说明核心阻塞仍在点击之后。</p></section>
+
+            <section id="why"><p class="eyebrow">为什么这是核心问题</p><h2>入口优化和转化优化不是同一件事。</h2><ul class="reason-list"><li>点击增加可能只是视觉注意力变化，不代表购买意愿增强。</li><li>点击后没有更多订单，阻塞可能在价格、信任、库存、权益或支付流程。</li><li>贸然全量会增加无效点击、客服咨询和后链路负担，却没有业务收益。</li></ul></section>
+
+            <section id="actions"><p class="eyebrow">行动建议</p><h2>把实验继续拆到点击后的关键漏斗。</h2><ol class="action-list"><li><div><h3>确认实验完整性</h3><p>核对样本量、随机分流、实验周期、显著性和版本污染，避免先在实验质量上出错。</p></div></li><li><div><h3>拆四个后链路指标</h3><p>比较商品页停留、加购、支付发起和支付成功，定位新版流量在哪一步失去。</p></div></li><li><div><h3>下一轮只测试最大阻塞</h3><p>如果用户停在商品页，优先测试价格、保障信息或首单权益；如果停在支付，再处理支付摩擦。</p></div></li></ol><aside class="case-stop"><strong>现在不要做</strong><p>不要把点击率当成业务胜利，不要因为一个局部指标显著就全量，也不要同时修改多个后链路变量。</p></aside></section>
+
+            <section id="decision"><p class="eyebrow">全量条件</p><h2>主指标改善、护栏稳定，才有资格全量。</h2><ul class="decision-list"><li><strong>可以全量：</strong>下单或支付成功显著提升，退款、投诉、页面性能等护栏没有恶化。</li><li><strong>继续实验：</strong>点击率提升但后链路无变化，把新版保留为入口素材，下一轮测试真正阻塞。</li><li><strong>立即停止：</strong>订单价值下降、退款上升、误点击明显增加，或实验存在分流污染。</li></ul></section>
+          </article>
+
+          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">全量条件</a></aside>
+        </div>
+      </section>
+
+      <section class="case-related"><div class="case-shell"><p class="eyebrow">继续看案例</p><h2>其他常见产品卡点</h2><div class="related-grid"><a href="dau-decline.html"><small>数据与运营</small><strong>DAU 连续下滑，要不要先做活动？</strong></a><a href="boss-insert-request.html"><small>项目与组织</small><strong>老板插需求，怎么恢复取舍？</strong></a><a href="project-delay.html"><small>项目推进</small><strong>项目延期两周，先恢复什么？</strong></a></div></div></section>
+      <section class="closing-band"><div class="section-shell closing-inner"><div><p class="eyebrow">把自己的实验数据交给 Agent</p><h2>让主指标决定是否全量。</h2></div><div class="closing-actions"><a class="button button-primary" href="../#install">安装 Skill</a><a class="button button-secondary dark-secondary" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer">查看源码 <span aria-hidden="true">↗</span></a></div></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="section-shell footer-inner"><div><strong>Maoxuan Product Agent</strong><p>默认只用现代产品语言解决问题。</p></div><div class="footer-links"><a href="./">案例库</a><a href="../#install">安装</a><a href="https://github.com/atdy/maoxuan-product-agent">GitHub</a><a href="../llms.txt">llms.txt</a></div></div></footer>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>项目延期两周怎么办？先冻结范围，再恢复关键路径</title>
+    <meta name="description" content="版本延期两周，研发说需求总变，产品说估期不准。先把剩余功能分成必须上线、可降级、可后置三类，设范围冻结点，并只追踪关键路径和阻塞项。">
+    <meta name="keywords" content="项目延期怎么办,版本延期,需求反复修改,研发估期不准,范围冻结,关键路径,项目管理,跨部门协作">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="canonical" href="https://atdy.github.io/maoxuan-product-agent/cases/project-delay.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../case-styles.css">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Maoxuan Product Agent">
+    <meta property="og:title" content="项目延期两周，产品和研发互相甩锅怎么办？">
+    <meta property="og:description" content="先恢复范围边界和关键路径，再复盘估期与变更机制。">
+    <meta property="og:url" content="https://atdy.github.io/maoxuan-product-agent/cases/project-delay.html">
+    <meta property="og:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="项目延期两周怎么办？">
+    <meta name="twitter:description" content="冻结范围、拆版本、只看关键路径。">
+    <meta name="twitter:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://atdy.github.io/maoxuan-product-agent/cases/project-delay.html#article",
+            "headline": "项目延期两周怎么办？先冻结范围，再恢复关键路径",
+            "description": "范围持续变化时的项目止血、版本拆分和交付规则重建。",
+            "url": "https://atdy.github.io/maoxuan-product-agent/cases/project-delay.html",
+            "image": "https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png",
+            "datePublished": "2026-07-10",
+            "dateModified": "2026-07-10",
+            "inLanguage": "zh-CN",
+            "author": {"@type": "Person", "name": "atdy", "url": "https://github.com/atdy"},
+            "publisher": {"@type": "Organization", "name": "Maoxuan Product Agent", "url": "https://atdy.github.io/maoxuan-product-agent/"}
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Maoxuan Product Agent", "item": "https://atdy.github.io/maoxuan-product-agent/"},
+              {"@type": "ListItem", "position": 2, "name": "产品决策案例库", "item": "https://atdy.github.io/maoxuan-product-agent/cases/"},
+              {"@type": "ListItem", "position": 3, "name": "项目延期两周怎么办", "item": "https://atdy.github.io/maoxuan-product-agent/cases/project-delay.html"}
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {"@type": "Question", "name": "项目延期后应该先追责还是先缩范围？", "acceptedAnswer": {"@type": "Answer", "text": "先恢复交付。把剩余功能分为必须上线、可降级、可后置三类，冻结范围并恢复关键路径。版本可控后再复盘估期和变更责任。"}},
+              {"@type": "Question", "name": "需求冻结后还能插紧急需求吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以，但必须由结果负责人明确同意，并砍掉同等工作量或接受新的交付日期，不能无代价增加范围。"}}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="case-page">
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header"><div class="nav-shell"><a class="brand" href="../" aria-label="Maoxuan Product Agent 首页"><span class="brand-mark" aria-hidden="true">决</span><span>Maoxuan Product Agent</span></a><nav class="nav-links" aria-label="主导航"><a href="../#method">方法</a><a href="./">案例</a><a href="../#install">安装</a><a class="repo-link" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer"><span>GitHub</span><img src="../assets/icons/external-link.svg" alt="" width="16" height="16"></a></nav></div></header>
+
+    <main id="main">
+      <section class="case-hero"><div class="case-hero-inner"><p class="case-breadcrumb"><a href="../">首页</a><span>/</span><a href="./">案例库</a><span>/</span><span>项目推进</span></p><p class="source-line">Maoxuan Product Agent <span>真实决策案例 04</span></p><h1>项目延期两周，产品和研发互相甩锅怎么办？</h1><p class="case-lead">先别争谁估错了。需求持续变化时，任何估期都会失效；当前最重要的是恢复范围边界和可交付版本。</p><div class="case-proof"><span>场景：延期两周</span><span>动作：范围冻结</span><span>目标：恢复交付</span></div></div></section>
+
+      <section class="case-article">
+        <div class="case-shell case-layout">
+          <article class="case-content">
+            <section id="question"><p class="eyebrow">真实问题</p><blockquote class="case-question">“版本延期两周了，研发说需求总变，产品说研发估期不准，怎么办？”</blockquote></section>
+
+            <section id="judgment"><p class="eyebrow">问题判断</p><h2>延期的核心不是谁背锅，而是范围变更和交付承诺之间没有硬边界。</h2><p>没有冻结点和变更代价，团队会默认边做边改。继续讨论责任无法恢复进度，必须先重建交付规则。</p></section>
+
+            <section id="why"><p class="eyebrow">为什么这是核心问题</p><h2>估期只能在范围相对稳定时成立。</h2><ul class="reason-list"><li>需求持续变化会反复打断开发、测试和联调，原估期自然失效。</li><li>新增范围没有替代成本，提出需求的人不会感受到交付代价。</li><li>泛进度会只汇报“完成百分比”，却看不见真正决定上线日期的阻塞。</li></ul></section>
+
+            <section id="actions"><p class="eyebrow">行动建议</p><h2>今天先把版本切成一个可控交付面。</h2><ol class="action-list"><li><div><h3>重排剩余范围</h3><p>把所有未完成项分成必须上线、可降级、可后置三类，只保留能完成本版本目标的最小集合。</p></div></li><li><div><h3>建立范围冻结点</h3><p>冻结后新增需求默认进入下个版本。紧急插入必须由结果负责人批准，并砍掉同等工作量。</p></div></li><li><div><h3>每天只看关键路径</h3><p>列出会改变上线日期的任务、负责人和阻塞解除时间，停止用泛进度会替代问题处理。</p></div></li></ol><aside class="case-stop"><strong>现在不要做</strong><p>不要继续讨论“谁估错了”，不要让所有功能都保持最高优先级，也不要在止血阶段继续扩范围。</p></aside></section>
+
+            <section id="decision"><p class="eyebrow">交付与复盘条件</p><h2>先让版本落地，再区分估期问题和变更问题。</h2><ul class="decision-list"><li><strong>本版本上线条件：</strong>必须项完成、关键阻塞清零、降级方案可接受、回滚路径明确。</li><li><strong>进入下个版本：</strong>可后置项和冻结后新增需求，不通过口头承诺绕过排期。</li><li><strong>上线后复盘：</strong>分别统计原始估期偏差、范围新增量、返工量和阻塞等待时间，再修正流程。</li></ul></section>
+          </article>
+
+          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">交付条件</a></aside>
+        </div>
+      </section>
+
+      <section class="case-related"><div class="case-shell"><p class="eyebrow">继续看案例</p><h2>其他常见产品卡点</h2><div class="related-grid"><a href="boss-insert-request.html"><small>项目与组织</small><strong>老板插需求，怎么恢复取舍？</strong></a><a href="dau-decline.html"><small>数据与运营</small><strong>DAU 连续下滑，要不要先做活动？</strong></a><a href="ab-test-clicks-no-orders.html"><small>实验与转化</small><strong>点击率涨了，为什么还不能全量？</strong></a></div></div></section>
+      <section class="closing-band"><div class="section-shell closing-inner"><div><p class="eyebrow">把自己的项目背景交给 Agent</p><h2>先恢复可交付范围，再处理责任。</h2></div><div class="closing-actions"><a class="button button-primary" href="../#install">安装 Skill</a><a class="button button-secondary dark-secondary" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer">查看源码 <span aria-hidden="true">↗</span></a></div></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="section-shell footer-inner"><div><strong>Maoxuan Product Agent</strong><p>默认只用现代产品语言解决问题。</p></div><div class="footer-links"><a href="./">案例库</a><a href="../#install">安装</a><a href="https://github.com/atdy/maoxuan-product-agent">GitHub</a><a href="../llms.txt">llms.txt</a></div></div></footer>
+  </body>
+</html>

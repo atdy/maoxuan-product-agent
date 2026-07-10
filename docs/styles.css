@@ -642,6 +642,23 @@ a {
   font-size: 14px;
 }
 
+.scenario-columns a {
+  display: block;
+  color: var(--red-dark);
+  font-weight: 720;
+}
+
+.scenario-columns a:hover,
+.scenario-columns a:focus-visible {
+  color: var(--blue);
+}
+
+.scenario-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+}
+
 .install-section {
   color: var(--white);
   background: var(--dark-green);

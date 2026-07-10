@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>老板临时插需求怎么处理？产品经理的三选一决策法</title>
+    <meta name="description" content="老板临时要求下周插入积分商城，但版本正在做新手转化。先确认目标冲突，再用保持原版本、两天原型验证、砍同等范围换最小版本三个选项拍板。">
+    <meta name="keywords" content="老板临时插需求,插需求怎么处理,产品经理需求管理,需求优先级,版本规划,范围管理,产品决策">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="canonical" href="https://atdy.github.io/maoxuan-product-agent/cases/boss-insert-request.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../case-styles.css">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Maoxuan Product Agent">
+    <meta property="og:title" content="老板临时插需求，产品经理怎么处理？">
+    <meta property="og:description" content="不要默默接受全部范围。把目标冲突、替代成本和最小版本变成三个可拍板选项。">
+    <meta property="og:url" content="https://atdy.github.io/maoxuan-product-agent/cases/boss-insert-request.html">
+    <meta property="og:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="老板临时插需求怎么处理？">
+    <meta name="twitter:description" content="用三个有代价的选项恢复版本取舍。">
+    <meta name="twitter:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": "https://atdy.github.io/maoxuan-product-agent/cases/boss-insert-request.html#article",
+            "headline": "老板临时插需求，产品经理怎么处理？",
+            "description": "用三个可拍板选项处理版本目标与临时业务压力之间的资源冲突。",
+            "url": "https://atdy.github.io/maoxuan-product-agent/cases/boss-insert-request.html",
+            "image": "https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png",
+            "datePublished": "2026-07-10",
+            "dateModified": "2026-07-10",
+            "inLanguage": "zh-CN",
+            "author": {"@type": "Person", "name": "atdy", "url": "https://github.com/atdy"},
+            "publisher": {"@type": "Organization", "name": "Maoxuan Product Agent", "url": "https://atdy.github.io/maoxuan-product-agent/"}
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Maoxuan Product Agent", "item": "https://atdy.github.io/maoxuan-product-agent/"},
+              {"@type": "ListItem", "position": 2, "name": "产品决策案例库", "item": "https://atdy.github.io/maoxuan-product-agent/cases/"},
+              {"@type": "ListItem", "position": 3, "name": "老板临时插需求怎么处理", "item": "https://atdy.github.io/maoxuan-product-agent/cases/boss-insert-request.html"}
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {"@type": "Question", "name": "老板临时插需求应该直接拒绝吗？", "acceptedAnswer": {"@type": "Answer", "text": "不要先拒绝，也不要默默接受。先确认老板真正要解决的目标，再给保持原版本、快速原型验证、砍同等范围换最小版本三个选项。"}},
+              {"@type": "Question", "name": "临时需求必须上线时怎么缩范围？", "acceptedAnswer": {"@type": "Answer", "text": "只保留能验证目标的最小链路。例如积分商城先做入口、单品兑换和人工履约，不先建设完整商城。"}}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="case-page">
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="../" aria-label="Maoxuan Product Agent 首页"><span class="brand-mark" aria-hidden="true">决</span><span>Maoxuan Product Agent</span></a>
+        <nav class="nav-links" aria-label="主导航"><a href="../#method">方法</a><a href="./">案例</a><a href="../#install">安装</a><a class="repo-link" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer"><span>GitHub</span><img src="../assets/icons/external-link.svg" alt="" width="16" height="16"></a></nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="case-hero">
+        <div class="case-hero-inner">
+          <p class="case-breadcrumb"><a href="../">首页</a><span>/</span><a href="./">案例库</a><span>/</span><span>项目与组织</span></p>
+          <p class="source-line">Maoxuan Product Agent <span>真实决策案例 01</span></p>
+          <h1>老板临时插需求，产品经理怎么处理？</h1>
+          <p class="case-lead">核心不是“听不听老板”，而是版本目标与临时业务压力发生资源冲突。把代价摊开，才能重新建立取舍。</p>
+          <div class="case-proof"><span>场景：老板插需求</span><span>动作：三选一</span><span>时间：当天拍板</span></div>
+        </div>
+      </section>
+
+      <section class="case-article">
+        <div class="case-shell case-layout">
+          <article class="case-content">
+            <section id="question">
+              <p class="eyebrow">真实问题</p>
+              <blockquote class="case-question">“老板临时要我们下周加一个会员积分商城，但这个版本本来在做新手转化，我该怎么处理？”</blockquote>
+            </section>
+
+            <section id="judgment">
+              <p class="eyebrow">问题判断</p>
+              <h2>这不是简单插需求，而是版本目标和临时业务压力之间的资源冲突。</h2>
+              <p>当前版本要证明新手转化，积分商城更偏留存或商业化。两个目标同时塞进同一版本，会让研发资源分散，也让上线结果无法解释。</p>
+            </section>
+
+            <section id="why">
+              <p class="eyebrow">为什么这是核心问题</p>
+              <h2>先弄清老板真正想解决什么，再讨论做多大。</h2>
+              <ul class="reason-list">
+                <li>如果老板要解决短期收入，积分商城未必是最快路径。</li>
+                <li>如果是客户承诺或阶段性展示，最小可见版本可能足够。</li>
+                <li>如果没有明确替代项，团队默认承担全部范围，原版本目标一定受损。</li>
+              </ul>
+            </section>
+
+            <section id="actions">
+              <p class="eyebrow">行动建议</p>
+              <h2>今天把问题整理成三个可拍板选项。</h2>
+              <ol class="action-list">
+                <li><div><h3>保持原版本</h3><p>继续围绕新手转化交付，积分商城进入下个版本。适用于老板没有硬截止时间、只是提出方向时。</p></div></li>
+                <li><div><h3>用 2 天做原型验证</h3><p>先确认用户是否愿意兑换、运营是否能供给、目标指标是什么。验证成立后再排正式版本。</p></div></li>
+                <li><div><h3>砍同等工作量，换最小商城</h3><p>如果必须上线，先做入口、一个兑换品和人工履约。把被替换需求、延期风险和影响指标写在同一页。</p></div></li>
+              </ol>
+              <aside class="case-stop"><strong>现在不要做</strong><p>不要口头答应“都做”，也不要只用“资源不够”回绝。没有明确取舍，就不承诺排期。</p></aside>
+            </section>
+
+            <section id="decision">
+              <p class="eyebrow">拍板条件</p>
+              <h2>用目标和代价决定方案，不用职位高低替代判断。</h2>
+              <ul class="decision-list">
+                <li><strong>选保持原版本：</strong>临时需求没有硬截止时间，且与本版本主指标无直接关系。</li>
+                <li><strong>选原型验证：</strong>方向重要，但用户价值、供给或目标仍不清楚。</li>
+                <li><strong>选最小版本：</strong>存在明确外部承诺，并且老板接受砍掉同等工作量。</li>
+              </ul>
+            </section>
+          </article>
+
+          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">拍板条件</a></aside>
+        </div>
+      </section>
+
+      <section class="case-related">
+        <div class="case-shell"><p class="eyebrow">继续看案例</p><h2>其他常见产品卡点</h2><div class="related-grid"><a href="project-delay.html"><small>项目推进</small><strong>项目延期两周，先恢复什么？</strong></a><a href="dau-decline.html"><small>数据与运营</small><strong>DAU 连续下滑，要不要先做活动？</strong></a><a href="ab-test-clicks-no-orders.html"><small>实验与转化</small><strong>点击率涨了，为什么还不能全量？</strong></a></div></div>
+      </section>
+
+      <section class="closing-band"><div class="section-shell closing-inner"><div><p class="eyebrow">把自己的背景交给 Agent</p><h2>让建议落到你的目标、资源和时间上。</h2></div><div class="closing-actions"><a class="button button-primary" href="../#install">安装 Skill</a><a class="button button-secondary dark-secondary" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer">查看源码 <span aria-hidden="true">↗</span></a></div></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="section-shell footer-inner"><div><strong>Maoxuan Product Agent</strong><p>默认只用现代产品语言解决问题。</p></div><div class="footer-links"><a href="./">案例库</a><a href="../#install">安装</a><a href="https://github.com/atdy/maoxuan-product-agent">GitHub</a><a href="../llms.txt">llms.txt</a></div></div></footer>
+  </body>
+</html>

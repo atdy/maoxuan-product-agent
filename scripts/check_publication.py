@@ -19,6 +19,28 @@ INSTALL_COMMAND = (
     "--agent codex claude-code cursor -g -y"
 )
 INDEXNOW_KEY = "723a4fbfcdbb892bf323d26e59688a25"
+CASE_PAGES = {
+    "cases/index.html": {
+        "url": f"{CANONICAL}cases/",
+        "types": {"CollectionPage", "ItemList"},
+    },
+    "cases/boss-insert-request.html": {
+        "url": f"{CANONICAL}cases/boss-insert-request.html",
+        "types": {"Article", "BreadcrumbList", "FAQPage"},
+    },
+    "cases/dau-decline.html": {
+        "url": f"{CANONICAL}cases/dau-decline.html",
+        "types": {"Article", "BreadcrumbList", "FAQPage"},
+    },
+    "cases/ab-test-clicks-no-orders.html": {
+        "url": f"{CANONICAL}cases/ab-test-clicks-no-orders.html",
+        "types": {"Article", "BreadcrumbList", "FAQPage"},
+    },
+    "cases/project-delay.html": {
+        "url": f"{CANONICAL}cases/project-delay.html",
+        "types": {"Article", "BreadcrumbList", "FAQPage"},
+    },
+}
 
 
 class PageParser(HTMLParser):
@@ -122,11 +144,42 @@ def validate_assets() -> None:
         require(read_png_size(path) == size, f"Unexpected dimensions for {path}")
 
 
+def validate_case_pages() -> None:
+    docs_root = DOCS.resolve()
+    for relative_path, expected in CASE_PAGES.items():
+        path = DOCS / relative_path
+        parser = PageParser()
+        parser.feed(path.read_text(encoding="utf-8"))
+
+        title = "".join(parser.title_parts).strip()
+        require(len(title) >= 18, f"Case title is too short: {relative_path}")
+        require(len(meta_content(parser, name="description")) >= 60, f"Case description is too short: {relative_path}")
+
+        canonical = next((item.get("href") for item in parser.links if item.get("rel") == "canonical"), None)
+        require(canonical == expected["url"], f"Case canonical URL is incorrect: {relative_path}")
+        require(meta_content(parser, prop="og:image").startswith(CANONICAL), f"Case Open Graph image is invalid: {relative_path}")
+
+        require(len(parser.json_ld) == 1, f"Expected one case JSON-LD graph: {relative_path}")
+        graph = json.loads(parser.json_ld[0]).get("@graph", [])
+        types = {item.get("@type") for item in graph}
+        require(expected["types"] <= types, f"Case JSON-LD graph is incomplete: {relative_path}")
+
+        for asset in parser.assets:
+            parsed = urlparse(asset)
+            if parsed.scheme or asset.startswith("#") or asset.startswith("/"):
+                continue
+            asset_path = (path.parent / parsed.path).resolve()
+            require(asset_path == docs_root or docs_root in asset_path.parents, f"Case asset escapes docs: {asset}")
+            require(asset_path.exists(), f"Missing case asset: {relative_path} -> {asset}")
+
+
 def validate_discovery_files() -> None:
     sitemap = ET.parse(DOCS / "sitemap.xml")
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     locations = [node.text for node in sitemap.findall("sm:url/sm:loc", namespace)]
     require(CANONICAL in locations, "Canonical URL is missing from sitemap.xml")
+    for expected in CASE_PAGES.values():
+        require(expected["url"] in locations, f"Case URL is missing from sitemap.xml: {expected['url']}")
 
     robots = (DOCS / "robots.txt").read_text(encoding="utf-8")
     require("Allow: /" in robots, "robots.txt does not allow crawling")
@@ -138,6 +191,8 @@ def validate_discovery_files() -> None:
     require(INSTALL_COMMAND in llms, "llms.txt is missing the verified install command")
     require("Core reasoning behavior" in llms_full, "llms-full.txt is missing the reasoning description")
     require("Frequently asked questions" in llms_full, "llms-full.txt is missing FAQ content")
+    require(f"{CANONICAL}cases/" in llms, "llms.txt is missing the case index")
+    require("boss-insert-request.html" in llms_full, "llms-full.txt is missing searchable cases")
 
     indexnow_key = (DOCS / f"{INDEXNOW_KEY}.txt").read_text(encoding="utf-8").strip()
     require(indexnow_key == INDEXNOW_KEY, "IndexNow verification file is invalid")
@@ -170,6 +225,7 @@ def validate_repository_package() -> None:
 def main() -> None:
     validate_page()
     validate_assets()
+    validate_case_pages()
     validate_discovery_files()
     validate_repository_package()
     print("Publication validation passed.")
