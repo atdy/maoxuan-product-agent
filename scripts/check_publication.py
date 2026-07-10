@@ -85,10 +85,14 @@ class PageParser(HTMLParser):
         self.anchors: list[str] = []
         self.assets: list[str] = []
         self.json_ld: list[str] = []
+        self.visible_text_parts: list[str] = []
         self._json_buffer: list[str] | None = None
+        self._excluded_text_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {name: value or "" for name, value in attrs}
+        if tag in {"script", "style"}:
+            self._excluded_text_depth += 1
         if tag == "title":
             self.in_title = True
         elif tag == "meta":
@@ -111,12 +115,16 @@ class PageParser(HTMLParser):
         elif tag == "script" and self._json_buffer is not None:
             self.json_ld.append("".join(self._json_buffer))
             self._json_buffer = None
+        if tag in {"script", "style"}:
+            self._excluded_text_depth -= 1
 
     def handle_data(self, data: str) -> None:
         if self.in_title:
             self.title_parts.append(data)
         if self._json_buffer is not None:
             self._json_buffer.append(data)
+        if self._excluded_text_depth == 0:
+            self.visible_text_parts.append(data)
 
 
 def require(condition: bool, message: str) -> None:
@@ -223,10 +231,16 @@ def validate_case_pages() -> None:
         else:
             article = next(item for item in graph if item.get("@type") == "Article")
             faq = next(item for item in graph if item.get("@type") == "FAQPage")
+            visible_text = " ".join("".join(parser.visible_text_parts).split())
             require(article.get("url") == expected["url"], f"Case Article URL is incorrect: {relative_path}")
             require(len(article.get("headline", "")) >= 12, f"Case Article headline is too short: {relative_path}")
             require(len(faq.get("mainEntity", [])) >= 2, f"Case FAQ needs at least two questions: {relative_path}")
-            for section_id in ("question", "judgment", "why", "actions", "decision"):
+            for entity in faq.get("mainEntity", []):
+                question = entity.get("name", "")
+                answer = entity.get("acceptedAnswer", {}).get("text", "")
+                require(question in visible_text, f"Case FAQ question is not visible: {relative_path}")
+                require(answer in visible_text, f"Case FAQ answer is not visible: {relative_path}")
+            for section_id in ("question", "judgment", "why", "actions", "decision", "faq"):
                 require(f'id="{section_id}"' in source, f"Case section is missing ({section_id}): {relative_path}")
             require("case-stop" in source, f"Case stop list is missing: {relative_path}")
             require("case-related" in source, f"Case related links are missing: {relative_path}")

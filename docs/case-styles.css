@@ -221,6 +221,30 @@
   color: #d5ddd8;
 }
 
+.case-faq-list {
+  margin: 28px 0 0;
+  border-top: 2px solid var(--ink);
+}
+
+.case-faq-list > div {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-faq-list dt {
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 760;
+  line-height: 1.55;
+}
+
+.case-faq-list dd {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
 .case-side-nav {
   position: sticky;
   top: calc(var(--header-height) + 28px);

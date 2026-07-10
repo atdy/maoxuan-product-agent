@@ -78,8 +78,9 @@
             <section id="why"><p class="eyebrow">为什么这是核心问题</p><h2>错误数据会让团队把正常链路改坏，也会让后续实验失去基线。</h2><ul class="reason-list"><li>分子和分母不同，同名转化率可能在衡量完全不同的行为。</li><li>数据延迟、重复事件和归因窗口都可能让短期趋势方向相反。</li><li>业务需要的是一个带置信度的事实结论，不是两个团队各自捍卫看板。</li></ul></section>
             <section id="actions"><p class="eyebrow">行动建议</p><h2>24 小时内完成定义对齐、原始校验和决策结论。</h2><ol class="action-list"><li><div><h3>把两套指标定义放到同一页</h3><p>逐项对齐分子、分母、用户或订单去重、事件时间、归因规则、过滤条件和数据更新时间。</p></div></li><li><div><h3>抽查原始事实</h3><p>随机抽取 100 条注册、下单、支付与退款日志，对照数据库或支付记录，定位差异从哪个事件开始产生。</p></div></li><li><div><h3>给出唯一决策口径</h3><p>明确结论是真实上涨、真实下降还是口径问题，标注置信度、历史回填方式和后续唯一 owner。</p></div></li></ol><aside class="case-stop"><strong>现在不要做</strong><p>不要在口径没统一前启动转化优化，也不要用两个数字的平均值妥协。错误事实没有折中答案。</p></aside></section>
             <section id="decision"><p class="eyebrow">决策条件</p><h2>只有确认真实行为变化，才进入业务动作。</h2><ul class="decision-list"><li><strong>真实上涨：</strong>原始支付与订单记录支持 BI 趋势，修复产品后台并回填历史。</li><li><strong>真实下降：</strong>两套定义统一后仍下降，再拆渠道、人群和支付链路寻找业务原因。</li><li><strong>口径问题：</strong>冻结相关业务结论，修复埋点或 ETL，并给下游明确影响范围。</li><li><strong>仍无法判断：</strong>先采用不可变业务记录作为临时事实表，标记置信度并限制不可逆决策。</li></ul></section>
+            <section id="faq"><p class="eyebrow">常见问题</p><h2>两个看板冲突时如何恢复事实？</h2><dl class="case-faq-list"><div><dt>BI 和产品后台数据不一致应该信哪个？</dt><dd>不要按看板归属选择。先对齐指标的分子、分母、去重、归因、时间窗口和更新时间，再用原始日志或不可变业务记录校验哪套计算能反映真实行为。</dd></div><div><dt>数据口径没统一时可以先做业务优化吗？</dt><dd>不应该。方向相反的指标无法支持拍板，先暂停不可逆业务动作，给出口径问题、真实上涨或真实下降三类结论后再进入优化。</dd></div></dl></section>
           </article>
-          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">决策条件</a></aside>
+          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">决策条件</a><a href="#faq">常见问题</a></aside>
         </div>
       </section>
 

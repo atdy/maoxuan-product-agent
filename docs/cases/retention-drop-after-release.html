@@ -78,8 +78,9 @@
             <section id="why"><p class="eyebrow">为什么这是核心问题</p><h2>全量指标会把渠道结构、设备差异和版本影响混在一起。</h2><ul class="reason-list"><li>低留存渠道占比上升，可能在产品行为不变时拉低总体留存。</li><li>如果异常只集中在某个设备、系统或灰度版本，局部降级比全量回滚更稳妥。</li><li>客服反馈能提示排查方向，但少量个案不能单独证明整体因果。</li></ul></section>
             <section id="actions"><p class="eyebrow">行动建议</p><h2>2 小时内给出保留、局部处理和全量回滚三种条件。</h2><ol class="action-list"><li><div><h3>按 cohort 隔离影响</h3><p>拆新老用户、渠道、设备、系统、版本和灰度组的 D1/D7 留存，并按旧渠道权重复算总体变化。</p></div></li><li><div><h3>核对直接质量信号</h3><p>比较核心路径完成率、崩溃率、接口失败率和投诉主题，确认问题是否与新版本改动一致。</p></div></li><li><div><h3>先止损受影响范围</h3><p>明确热修时长与回滚成本；可定位到局部就局部降级，影响广泛且无法热修才全量回滚。</p></div></li></ol><aside class="case-stop"><strong>现在不要做</strong><p>不要只看总留存就全量回滚，也不要因为证据不完整而继续放量。先暂停扩量，保留可比较的对照组。</p></aside></section>
             <section id="decision"><p class="eyebrow">决策条件</p><h2>根据影响范围、证据强度和修复速度选择动作。</h2><ul class="decision-list"><li><strong>全量回滚：</strong>新版本组显著变差，核心路径受损，影响核心用户且无法在可接受时间内热修。</li><li><strong>局部降级：</strong>问题集中在特定设备、系统、渠道或灰度人群，并且有可靠的定向开关。</li><li><strong>保留版本：</strong>按渠道结构复算后差异消失，或异常来自埋点、投放人群而非产品行为。</li><li><strong>继续灰度：</strong>证据仍不足但风险可控，保持旧版对照并补齐关键埋点，暂不扩大流量。</li></ul></section>
+            <section id="faq"><p class="eyebrow">常见问题</p><h2>留存下降到什么程度需要回滚？</h2><dl class="case-faq-list"><div><dt>新版本上线后留存下降应该马上回滚吗？</dt><dd>不要只因时间重合就全量回滚。先按渠道、设备、系统、版本和灰度组拆留存，确认下降是否集中在新版本，并核对核心路径、崩溃率和投诉。</dd></div><div><dt>什么情况下应该全量回滚版本？</dt><dd>当新版本组的留存与核心任务完成率显著下降、影响核心用户且无法快速热修时，应全量回滚；只影响局部设备或人群时优先局部降级。</dd></div></dl></section>
           </article>
-          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">决策条件</a></aside>
+          <aside class="case-side-nav" aria-label="本文目录"><strong>本文目录</strong><a href="#question">真实问题</a><a href="#judgment">问题判断</a><a href="#why">原因分析</a><a href="#actions">行动建议</a><a href="#decision">决策条件</a><a href="#faq">常见问题</a></aside>
         </div>
       </section>
 
