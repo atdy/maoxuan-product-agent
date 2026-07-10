@@ -18,6 +18,7 @@ INSTALL_COMMAND = (
     "npx skills add atdy/maoxuan-product-agent --skill product-decision-agent "
     "--agent codex claude-code cursor -g -y"
 )
+INDEXNOW_KEY = "723a4fbfcdbb892bf323d26e59688a25"
 
 
 class PageParser(HTMLParser):
@@ -137,6 +138,9 @@ def validate_discovery_files() -> None:
     require(INSTALL_COMMAND in llms, "llms.txt is missing the verified install command")
     require("Core reasoning behavior" in llms_full, "llms-full.txt is missing the reasoning description")
     require("Frequently asked questions" in llms_full, "llms-full.txt is missing FAQ content")
+
+    indexnow_key = (DOCS / f"{INDEXNOW_KEY}.txt").read_text(encoding="utf-8").strip()
+    require(indexnow_key == INDEXNOW_KEY, "IndexNow verification file is invalid")
 
 
 def validate_repository_package() -> None:
