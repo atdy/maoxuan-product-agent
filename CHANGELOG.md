@@ -2,6 +2,17 @@
 
 All notable changes to Maoxuan Product Agent are documented here.
 
+## [Unreleased]
+
+### Added
+
+- Chinese-first issue forms for reproducible Agent problems and sanitized real-world product cases.
+- A pull request checklist and project-specific community code of conduct.
+
+### Changed
+
+- Extended publication validation to enforce the repository's community health files.
+
 ## [1.0.3] - 2026-07-10
 
 ### Added

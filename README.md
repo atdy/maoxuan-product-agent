@@ -277,10 +277,14 @@ Claude Code 或 Cursor：
 │   ├── install.sh                 # 多 Agent 安装脚本
 │   ├── check_publication.py       # 页面、元数据、链接和图片门禁
 │   └── validate.sh                # 项目级验证入口
-├── .github/workflows/validate.yml # GitHub Actions
+├── .github/
+│   ├── ISSUE_TEMPLATE/            # 中文问题反馈与产品案例表单
+│   ├── pull_request_template.md   # PR 质量检查清单
+│   └── workflows/validate.yml     # GitHub Actions
 ├── README_EN.md                   # 英文搜索入口
 ├── CHANGELOG.md
 ├── CITATION.cff
+├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 └── LICENSE
 ~~~
@@ -300,6 +304,7 @@ Claude Code 或 Cursor：
 - 故意包含来源暴露和空话的错误答案必须失败。
 - 自测报告至少保留 36 个通过案例。
 - GitHub Pages 的 SEO/GEO 元数据、本地链接和图片尺寸正确。
+- Issue、PR 和社区协作文件完整且保持中文优先。
 
 如果本机有 Codex 的 <code>skill-creator</code>：
 
@@ -310,6 +315,14 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-
 当前测试资产见 [self_test_report.md](evaluation/self_test_report.md) 和 [forward_test_report.md](evaluation/forward_test_report.md)。贡献规范见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 如果它确实帮你做出了一个更清楚的产品决策，可以给仓库一个 [Star](https://github.com/atdy/maoxuan-product-agent)。这会让更多中文产品同学更容易找到它。
+
+## 参与共建
+
+- 遇到安装、触发、判断或输出问题，请使用 [问题反馈表单](https://github.com/atdy/maoxuan-product-agent/issues/new?template=bug_report.yml)。
+- 有适合加入测试集的真实场景，请提交 [产品案例与优化建议](https://github.com/atdy/maoxuan-product-agent/issues/new?template=product_case.yml)。
+- 准备提交代码或 Prompt 修改前，请先阅读 [贡献规范](CONTRIBUTING.md) 和 [社区行为准则](CODE_OF_CONDUCT.md)。
+
+提交内容必须先脱敏。不要公开公司机密、用户隐私、账号密钥或受限制的内部数据。
 
 ## 设计边界
 

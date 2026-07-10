@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 使用与安装文档
+    url: https://github.com/atdy/maoxuan-product-agent#安装
+    about: 先查看 Codex、Claude Code、Cursor 和通用 Agent 的安装方法。
+  - name: 产品决策案例库
+    url: https://atdy.github.io/maoxuan-product-agent/cases/
+    about: 查看需求、增长、运营、数据和项目协作案例。

@@ -1,0 +1,67 @@
+name: 产品案例与优化建议
+description: 提交一个真实、已脱敏的产品问题，用于改进判断与测试
+title: "[案例] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        好案例应包含真实目标、当前阶段、已知事实和关键约束，而不只是一个抽象题目。
+
+  - type: dropdown
+    id: scenario
+    attributes:
+      label: 场景类型
+      options:
+        - 产品规划与需求优先级
+        - 增长、拉新、留存或转化
+        - 内容、社区、用户或活动运营
+        - 数据异常、指标口径或 A/B Test
+        - 项目延期、资源协调或跨团队协作
+        - 商业化、定价或竞品应对
+        - OKR、KPI、目标拆解或复盘
+        - 其他产品工作场景
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: 产品问题
+      description: 像日常工作中提问一样描述问题。
+      placeholder: 新版本上线后次日留存下降 4 个百分点，要不要立即回滚？
+    validations:
+      required: true
+
+  - type: textarea
+    id: facts
+    attributes:
+      label: 已知事实与约束
+      description: 至少说明目标、阶段、时间范围、关键数据、资源或相关方。
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-decision
+    attributes:
+      label: 你认为高质量回答必须做到什么
+      description: 可写核心判断、最值得执行的下一步、停止项或切换条件。
+    validations:
+      required: true
+
+  - type: textarea
+    id: known-failure
+    attributes:
+      label: 常见错误回答（可选）
+      description: 说明哪些套话、误判或方案在这个场景里没有帮助。
+
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: 内容确认
+      options:
+        - label: 案例已经脱敏，不包含公司机密、用户隐私或受限制数据。
+          required: true
+        - label: 我同意项目在测试、文档或案例库中改写并使用这份案例。
+          required: true

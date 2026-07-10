@@ -1,0 +1,71 @@
+name: 问题反馈
+description: 报告安装、触发、判断或输出质量问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请先删除公司名、用户信息、内部指标和其他敏感内容，再提交可复现信息。
+
+  - type: dropdown
+    id: agent
+    attributes:
+      label: 使用的 Agent
+      options:
+        - Codex
+        - Claude Code
+        - Cursor
+        - 其他 Agent
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Skill 版本或 Commit
+      description: 可填写版本号、Commit SHA 或安装日期。
+      placeholder: v1.0.3
+    validations:
+      required: true
+
+  - type: textarea
+    id: original-question
+    attributes:
+      label: 用户原始问题（已脱敏）
+      description: 保留判断所需的阶段、目标、资源、数据和限制条件。
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-output
+    attributes:
+      label: 实际结果
+      description: 粘贴关键输出，或说明没有触发、报错、判断偏差、行动不明确等问题。
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 期望结果
+      description: 说明你认为真正的问题、正确行动或触发行为应该是什么。
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤与补充环境
+      description: 安装方式、Agent 版本、是否有其他规则或 Skill 同时生效。
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已确认问题在当前最新版中仍可复现。
+          required: true
+        - label: 我已删除账号、密钥、内部数据和个人信息。
+          required: true

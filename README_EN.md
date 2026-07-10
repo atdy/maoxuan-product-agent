@@ -130,6 +130,14 @@ Run all checks:
 
 See [self_test_report.md](evaluation/self_test_report.md), [forward_test_report.md](evaluation/forward_test_report.md), and [source_reading_audit.md](evaluation/source_reading_audit.md).
 
+## Contributing
+
+- Report installation, triggering, judgment, or output problems with the [Chinese-first bug form](https://github.com/atdy/maoxuan-product-agent/issues/new?template=bug_report.yml).
+- Submit a sanitized real-world scenario through the [product case form](https://github.com/atdy/maoxuan-product-agent/issues/new?template=product_case.yml).
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [community code of conduct](CODE_OF_CONDUCT.md) before opening a pull request.
+
+Do not publish company secrets, user data, credentials, or restricted internal metrics.
+
 ## Scope
 
 This repository is not a political knowledge base, quotation generator, history tool, or philosophy tutor. It does not contain the full anthology and does not retrieve source passages. The source methodology is exposed only in maintenance documentation for auditability.
