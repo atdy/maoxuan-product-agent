@@ -156,6 +156,12 @@ def validate_repository_package() -> None:
     require(INSTALL_COMMAND in readme, "README is missing the verified install command")
     require("《矛盾论》《实践论》" in readme, "README does not foreground the methodology source")
 
+    agent_metadata = (ROOT / "product-decision-agent/agents/openai.yaml").read_text(encoding="utf-8")
+    require("allow_implicit_invocation: true" in agent_metadata, "Implicit invocation must stay enabled")
+    require("产品" in agent_metadata and "行动" in agent_metadata, "Agent metadata lacks product-action intent")
+    for source_term in ("毛选", "毛泽东", "矛盾论", "实践论"):
+        require(source_term not in agent_metadata, f"Agent metadata exposes source term: {source_term}")
+
 
 def main() -> None:
     validate_page()
