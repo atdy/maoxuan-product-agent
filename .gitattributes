@@ -1,0 +1,9 @@
+# The shipped product is a Markdown Agent Skill. Code and site assets are maintenance tooling.
+product-decision-agent/SKILL.md linguist-detectable=true
+product-decision-agent/references/*.md linguist-detectable=true
+evaluation/*.md linguist-detectable=true
+
+product-decision-agent/scripts/** linguist-detectable=false
+scripts/** linguist-detectable=false
+design/** linguist-detectable=false
+docs/** linguist-detectable=false
