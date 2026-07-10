@@ -304,6 +304,7 @@ def validate_repository_package() -> None:
         ROOT / "LICENSE",
         ROOT / ".github/ISSUE_TEMPLATE/bug_report.yml",
         ROOT / ".github/ISSUE_TEMPLATE/product_case.yml",
+        ROOT / ".github/ISSUE_TEMPLATE/other.md",
         ROOT / ".github/ISSUE_TEMPLATE/config.yml",
         ROOT / ".github/pull_request_template.md",
         ROOT / ".github/workflows/validate.yml",
@@ -324,6 +325,7 @@ def validate_repository_package() -> None:
     collaboration_markers = {
         ".github/ISSUE_TEMPLATE/bug_report.yml": ("name: 问题反馈", "id: actual-output", "id: expected-behavior"),
         ".github/ISSUE_TEMPLATE/product_case.yml": ("name: 产品案例与优化建议", "id: expected-decision", "id: permission"),
+        ".github/ISSUE_TEMPLATE/other.md": ("name: 其他问题", "## 问题说明", "## 隐私确认"),
         ".github/ISSUE_TEMPLATE/config.yml": ("blank_issues_enabled: false", "产品决策案例库"),
         ".github/pull_request_template.md": ("## 解决的真实问题", "./scripts/validate.sh", "默认输出仍使用现代中文产品语言"),
         "CODE_OF_CONDUCT.md": ("## 期望行为", "## 不可接受行为", "## 报告与处理"),
