@@ -1,305 +1,270 @@
-# Product Decision Agent
+# Maoxuan Product Agent
 
-> 把《矛盾论》《实践论》蒸馏成一个中文产品决策 Agent。  
-> 不输出原文，不讲历史，不做政治表达，只帮你解决真实产品问题。
+### 从《矛盾论》《实践论》蒸馏出来的中文产品工作 Agent
 
-这是一个面向中文互联网产品工作的 Agent Skill。
+[![License: MIT](https://img.shields.io/badge/License-MIT-2f6f4e.svg)](LICENSE)
+![Language](https://img.shields.io/badge/Language-中文-cb2b2b.svg)
+![Agent Skills](https://img.shields.io/badge/Agent_Skills-Compatible-2563eb.svg)
 
-它的底层推理来源，是对《矛盾论》《实践论》的完整阅读、提炼和产品化转译；同时吸收了《毛泽东选集》第一卷中关于调查研究、阶段判断、资源集中、相关方分析、组织协作和行动验证的相关方法。
+> 复杂的产品问题，通常不是没有办法，而是没有找到当前最该解决的那个问题。
 
-但它不是《毛选》知识库，也不是语录生成器。
+这是一个面向中国大陆互联网工作场景的产品决策 Agent。
 
-用户不需要学习《毛选》，也不会在默认回答里看到原文引用。你只需要提出真实产品问题，它会像一位经验丰富的产品负责人一样，帮你判断真正卡点，并给出下一步最值得执行的方案。
+它以对《矛盾论》《实践论》的完整阅读为底座，不摘抄语录，也不把几句话包装成框架，而是把两篇文章的完整推理结构蒸馏成 Agent 的后台决策过程：从真实材料出发，找到当前阶段的核心阻塞，判断什么机制正在主导结果，再用最小行动回到实践中验证和修正。
 
-## 一句话说明
+用户不会看到哲学课、历史课或政治化表达。你只需要把真实问题交给它：
 
-**这是一个把《矛盾论》《实践论》的思维方式隐藏在后台，用现代产品语言输出决策建议的 Product Decision Agent。**
+~~~text
+老板临时插了一个积分商城，但这个版本原本在做新手转化，我该怎么处理？
+~~~
 
-它会做的不是：
+它会直接告诉你：
 
-- 解释《毛选》。
-- 复述原文。
-- 输出政治化话术。
-- 给你一堆抽象框架。
+- 这件事真正冲突的是什么。
+- 当前应该保护哪个业务结果。
+- 下一步找谁、做什么、何时完成。
+- 用什么信号决定继续、停止或回滚。
+- 哪些事情现在不要做。
 
-它会做的是：
+**它的来源是《矛盾论》《实践论》，它的工作语言是现代互联网产品。**
 
-- 找出当前阶段真正的核心阻塞。
-- 判断问题属于需求、增长、留存、转化、数据、资源、协作还是交付问题。
-- 区分事实、假设和解决方案诉求。
-- 判断证据够不够，够就行动，不够就做最小验证。
-- 告诉你现在最该做什么，以及哪些事暂时不要做。
+## 它不是什么
 
-## 为什么是《矛盾论》和《实践论》
+- 不是《毛选》问答库。
+- 不是语录生成器。
+- 不是历史或政治研究工具。
+- 不是把“主要矛盾”“实践出真知”挂在嘴边的角色扮演。
+- 不是套模板后平均罗列十种方案的通用产品 Prompt。
 
-产品工作里最难的，往往不是“缺方法论”，而是：
+默认回答不会出现“《矛盾论》认为”“《实践论》指出”“毛主席说”等表达。方法在后台，答案只解决工作问题。
 
-- 表面问题太多，不知道哪个才是主问题。
-- 需求、资源、数据、老板、竞品、用户反馈互相打架。
-- 团队在会议里讨论很久，却没有回到真实用户和真实结果。
-- 方案看起来都对，但当前阶段只能做一件最关键的事。
+## 为什么值得用
 
-《矛盾论》给这个 Agent 的核心能力是：
+普通产品 Prompt 容易给出一组看起来都对的建议。这个 Agent 强制完成几项更困难的判断：
 
-- 不平均看待所有问题，先找当前阶段的主要问题。
-- 不套万能公式，具体问题具体分析。
-- 不只看外部原因，而是追到产品、用户、组织内部的真实机制。
-- 看阶段变化，知道什么时候该换打法。
+| 常见回答 | Maoxuan Product Agent |
+|---|---|
+| 罗列所有可能方向 | 找当前阶段最影响结果的核心阻塞 |
+| 套行业最佳实践 | 先核对人群、阶段、资源和前提 |
+| 把数据或反馈直接当结论 | 区分事实、假设、二手判断和孤立个案 |
+| 找到问题就开始给方案 | 继续判断什么机制正在主导结果 |
+| 给一个完整大方案 | 证据不足时先做最小诊断或可回滚验证 |
+| 只说应该做什么 | 同时给停止清单和切换打法的条件 |
 
-《实践论》给这个 Agent 的核心能力是：
+它的后台决策闭环是：
 
-- 判断必须来自事实、一线材料和真实行为。
-- 先区分现象、假设和结论。
-- 方案必须回到 MVP、灰度、A/B Test、用户验证、数据验证中检验。
-- 认识要随着实践结果不断修正。
+~~~mermaid
+flowchart LR
+    A["真实产品问题"] --> B["区分事实与假设"]
+    B --> C["定位核心阻塞"]
+    C --> D["判断主导机制与阶段"]
+    D --> E["选择最小有效行动"]
+    E --> F["用真实结果验证"]
+    F --> B
+~~~
 
-所以，这个 Skill 的价值不是告诉你“《毛选》说了什么”，而是让你面对复杂产品问题时，获得一种更强的问题定位、取舍和行动能力。
+## 方法是怎样被蒸馏的
 
-## 它怎么回答问题
+设计阶段完整阅读了《实践论》《矛盾论》，并通读《毛泽东选集》第一卷中与调查研究、阶段判断、资源集中、组织方法和行动验证相关的篇目。
 
-默认输出结构：
+这里保留的不是原文措辞，而是判断动作：
+
+| 方法来源中的结构 | 产品工作中的动作 |
+|---|---|
+| 从实践形成认识 | 从用户行为、数据、一线材料形成机制判断 |
+| 认识回到实践检验 | MVP、灰度、A/B Test、用户验证、数据验证 |
+| 区分现象与内部机制 | 不把 DAU 下滑直接处理成“做活动” |
+| 找当前阶段的主要问题 | 找到最影响结果、解除后能带动其他问题的阻塞 |
+| 判断哪一方当前起主导作用 | 区分供给/需求、价值/摩擦、流量/承接、目标/激励 |
+| 具体问题具体分析 | 按人群、阶段、渠道、链路和约束选择打法 |
+| 条件变化带来关系变化 | 写清何时加码、停止、回滚或切换策略 |
+| 不同性质的问题用不同方法 | 数据冲突查口径，资源冲突做取舍，假设冲突用实验 |
+
+完整阅读范围和转译审查记录见 [source_reading_audit.md](evaluation/source_reading_audit.md) 与 [methodology-basis.md](product-decision-agent/references/methodology-basis.md)。
+
+## 回答长什么样
+
+默认结构很简单：
 
 1. **问题判断**：一句话指出真正问题。
-2. **原因分析**：说明为什么这是关键。
-3. **行动建议**：给出 1-3 个下一步动作，尽量包含时间窗口、负责人/相关方、指标或后续决策口径。
-4. **风险提醒**：指出现在不要做什么。
-5. **需要确认**：仅在会改变判断时提出，最多 3 个问题。
+2. **原因分析**：解释为什么这是当前关键。
+3. **行动建议**：给出 1-3 个动作，包含时间、相关方、指标或决策口径。
+4. **风险提醒**：明确现在不要做什么。
+5. **需要确认**：只在会改变判断时出现，最多 3 个问题。
 
 示例：
 
-```text
+~~~text
 用户：
-我们社区 DAU 连续两周下降 15%，运营觉得要加活动拉回来。
+社区 DAU 连续两周下降 15%，运营想加活动拉回来。
 
 Agent：
 问题判断
-先不要用活动拉 DAU，当前最关键的是确认下滑来自哪类用户和哪个环节。
+先不要做活动，当前最关键的是确认下滑来自哪类用户和哪个环节。
 
 原因分析
-- 连续两周下降 15% 已经不像普通波动。
-- 社区 DAU 可能受新用户、老用户、内容供给、分发规则、Push、版本问题影响。
-- 没拆来源就做活动，只会制造短期噪音，掩盖真正原因。
+- 连续两周下降已经不像普通波动。
+- 新用户、老用户、内容供给、分发、版本和 Push 都可能造成同一现象。
+- 没拆来源就上活动，只会制造短期噪音。
 
 行动建议
-1. 24 小时内按新老用户、渠道、平台、版本、核心内容供给拆下降贡献。
-2. 找贡献最大的 1-2 个群体，看行为路径和最近反馈。
-3. 如果是老用户下降，先做召回和内容修复；如果是渠道下降，再做拉新活动，并用 72 小时 DAU 恢复率和 D7 留存判断是否继续。
+1. 24 小时内按新老用户、渠道、平台、版本和内容供给拆下降贡献。
+2. 找贡献最大的 1-2 个群体，核对行为路径和一线反馈。
+3. 内容供给导致下滑，就先修复核心创作者留存；渠道导致下滑，再决定是否做拉新。
 
 风险提醒
-不要先上全站活动，也不要看总 DAU 做判断。
-```
+不要先上全站活动，也不要只看总 DAU 做判断。
+~~~
 
-注意：默认回答里不会说“《矛盾论》认为……”或“《实践论》指出……”。方法在后台，输出是产品语言。
+## 适合谁
 
-## 适用场景
+- 产品经理、产品负责人、产品运营。
+- 增长、用户、内容、社区、活动运营。
+- 创业团队、业务负责人、项目负责人。
+- 需要处理数据异常、资源冲突和跨部门协作的人。
 
-这个 Agent 适合处理中国大陆互联网日常工作中的真实问题，包括：
+覆盖 36 类日常场景，包括需求优先级、版本规划、Roadmap、增长停滞、DAU/留存/转化、活动、社区冷启动、内容供给、竞品、A/B Test、数据口径、老板插需求、项目延期、资源协调、OKR/KPI 和复盘。
 
-- 产品规划、需求分析、PRD、需求优先级、排期、版本规划、Roadmap。
-- MVP、灰度、上线、迭代、用户研究、产品探索。
-- 增长停滞、拉新、投放、渠道、裂变、CAC、LTV、ROI。
-- DAU/MAU、GMV、漏斗、激活、留存、转化、会员、定价。
-- 社区运营、内容供给、创作者、用户运营、活动运营、私域。
-- 指标异常、数据口径、埋点、A/B Test、用户反馈、客服/销售反馈。
-- 竞品冲击、资源不足、项目延期、需求反复、老板临时插需求。
-- 跨部门协作、团队冲突、OKR/KPI、目标拆解、复盘。
+## 安装
 
-## 方法转译
+仓库中的标准 Skill 包是 <code>product-decision-agent/</code>。它遵循 Agent Skills 目录结构，可以同时用于 Codex、Claude Code、Cursor 和其他兼容 Agent。
 
-这个项目不是把原文摘出来，而是把方法转成现代产品工作中的判断动作：
+### 一键安装
 
-| 方法来源中的概念 | 产品工作中的表达 |
-|---|---|
-| 实践 | MVP、灰度、A/B Test、用户验证、数据验证、一线调研 |
-| 认识 | 认知升级、策略修正、信息校准、复盘结论 |
-| 矛盾 | 问题、瓶颈、资源冲突、关键阻塞 |
-| 主要矛盾 | 当前阶段最影响结果的主问题 |
-| 矛盾特殊性 | 具体场景、具体阶段、具体人群、具体链路 |
-| 转化条件 | 阶段变化、资源变化、用户结构变化、组织权责变化 |
-| 群众/阶层分析 | 用户分层、相关方地图、受益人/成本承担者/否决人 |
-| 根据地 | 核心场景、核心人群、核心链路、可防守阵地 |
+在仓库根目录运行：
+
+~~~bash
+# 安装到当前用户的 Codex
+./scripts/install.sh codex
+
+# 安装到当前用户的 Claude Code
+./scripts/install.sh claude
+
+# 安装到当前用户的 Cursor
+./scripts/install.sh cursor
+
+# 安装到通用 Agent Skills 目录（与 Codex 使用同一路径）
+./scripts/install.sh agents
+~~~
+
+安装到某个项目，而不是全局：
+
+~~~bash
+./scripts/install.sh codex /path/to/project
+./scripts/install.sh claude /path/to/project
+./scripts/install.sh cursor /path/to/project
+./scripts/install.sh agents /path/to/project
+~~~
+
+### 手动安装
+
+| Agent | 用户级目录 | 项目级目录 | 显式调用 |
+|---|---|---|---|
+| Codex | <code>~/.agents/skills/product-decision-agent/</code> | <code>.agents/skills/product-decision-agent/</code> | <code>$product-decision-agent</code> |
+| Claude Code | <code>~/.claude/skills/product-decision-agent/</code> | <code>.claude/skills/product-decision-agent/</code> | <code>/product-decision-agent</code> |
+| Cursor | <code>~/.cursor/skills/product-decision-agent/</code> | <code>.cursor/skills/product-decision-agent/</code> | <code>/product-decision-agent</code> |
+| Agent Skills 兼容工具 | <code>~/.agents/skills/product-decision-agent/</code> | <code>.agents/skills/product-decision-agent/</code> | 由具体 Agent 决定 |
+
+手动复制示例：
+
+~~~bash
+mkdir -p ~/.claude/skills/product-decision-agent
+cp -R product-decision-agent/. ~/.claude/skills/product-decision-agent/
+~~~
+
+Cursor 也会读取 <code>.agents/skills/</code>、<code>.claude/skills/</code> 和 <code>.codex/skills/</code>。因此执行一次 <code>./scripts/install.sh codex</code>，通常就能同时供 Codex 和 Cursor 使用；Claude Code 仍建议安装到自己的目录。
+
+## 使用
+
+安装后可以直接描述问题，Agent 会根据触发描述自动判断是否调用。也可以显式调用：
+
+Codex：
+
+~~~text
+使用 $product-decision-agent 帮我判断：A/B Test 点击率涨了 12%，但订单没涨，要不要全量？
+~~~
+
+Claude Code 或 Cursor：
+
+~~~text
+/product-decision-agent 我们有 20 个需求抢两个研发，下一版该怎么排？
+~~~
+
+通用 Agent：
+
+~~~text
+请按 product-decision-agent 的规则诊断：版本延期两周，产品和研发互相认为是对方的问题。
+~~~
+
+你不需要在问题里提《毛选》《矛盾论》或《实践论》。真实的产品、运营、增长、数据或协作问题就是触发入口。
 
 ## 项目结构
 
-```text
+~~~text
 .
-├── README.md
-├── LICENSE
-├── skill-source/
-│   ├── SKILL.md
-│   ├── agents/
-│   │   └── openai.yaml
+├── product-decision-agent/        # 可直接安装的标准 Skill 包
+│   ├── SKILL.md                   # 触发、后台推理、输出规则
+│   ├── agents/openai.yaml         # Codex UI 元数据
 │   ├── references/
-│   │   ├── methodology-basis.md
-│   │   ├── reasoning-engine.md
-│   │   ├── product-playbooks.md
-│   │   └── response-examples.md
+│   │   ├── methodology-basis.md   # 方法来源与产品化映射
+│   │   ├── reasoning-engine.md    # 复杂问题推理引擎
+│   │   ├── product-playbooks.md   # 36 个产品工作场景
+│   │   └── response-examples.md   # 中文回答样例
 │   └── scripts/
-│       └── quality_gate.py
-└── evaluation/
-    ├── design_summary.md
-    ├── self_test_report.md
-    ├── source_reading_audit.md
-    ├── sample_output_case_*.md
-    └── sample_output_bad_example.md
-```
+│       ├── quality_gate.py        # 输出质量门禁
+│       └── test_quality_gate.py   # 门禁回归测试
+├── evaluation/                    # 36 案例测试与代表性输出
+├── scripts/
+│   ├── install.sh                 # 多 Agent 安装脚本
+│   └── validate.sh                # 项目级验证入口
+├── .github/workflows/validate.yml # GitHub Actions
+├── CONTRIBUTING.md
+└── LICENSE
+~~~
 
-核心文件：
+## 验证
 
-- `skill-source/SKILL.md`：Agent 入口，包含触发描述、角色、后台推理流程、输出结构和禁止事项。
-- `skill-source/references/reasoning-engine.md`：复杂问题的后台推理引擎。
-- `skill-source/references/product-playbooks.md`：36 个现代产品工作场景手册。
-- `skill-source/references/response-examples.md`：中文输出样例。
-- `skill-source/references/methodology-basis.md`：方法来源与产品化映射，供维护和审查使用。
-- `skill-source/scripts/quality_gate.py`：样例输出质量门禁。
+运行完整本地验证：
 
-## 怎么使用
+~~~bash
+./scripts/validate.sh
+~~~
 
-这个项目不只适用于 Codex。只要你的 Agent 支持读取本地上下文、项目规则、Skill、Rules 或自定义系统提示，都可以使用。
+它会检查：
 
-### 方式一：Codex
+- 质量门禁本身的回归测试。
+- 代表性正确答案全部通过。
+- 故意包含来源暴露和空话的错误答案必须失败。
+- 自测报告至少保留 36 个通过案例。
 
-复制到 Codex Skills 目录：
+如果本机有 Codex 的 <code>skill-creator</code>：
 
-```bash
-git clone https://github.com/<your-name>/<repo-name>.git
-cd <repo-name>
+~~~bash
+python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-decision-agent
+~~~
 
-mkdir -p ~/.codex/skills/product-decision-agent
-rsync -a skill-source/ ~/.codex/skills/product-decision-agent/
-```
+当前测试资产见 [self_test_report.md](evaluation/self_test_report.md) 和 [forward_test_report.md](evaluation/forward_test_report.md)。贡献规范见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-使用：
+## 设计边界
 
-```text
-使用 $product-decision-agent 帮我诊断这个产品问题：老板临时插了一个会员积分商城，但这个版本原本在做新手转化，我该怎么处理？
-```
-
-### 方式二：Claude Code
-
-如果你的 Claude Code 环境支持 Skills，可以把 `skill-source/` 放到对应的 Skills 目录，并用 `product-decision-agent` 调用。
-
-如果暂时没有 Skills 目录，也可以用项目规则方式接入。在你的项目根目录新建或修改 `CLAUDE.md`：
-
-```md
-当我提出产品、运营、增长、数据或组织协作问题时，请先阅读并遵循：
-
-./skill-source/SKILL.md
-
-如果问题复杂，再按需读取：
-
-- ./skill-source/references/reasoning-engine.md
-- ./skill-source/references/product-playbooks.md
-- ./skill-source/references/response-examples.md
-
-默认用中文回答。不要引用原文，不要解释理论来源，直接给问题判断、原因分析、行动建议、风险提醒和必要确认项。
-```
-
-然后把 `skill-source/` 放进你的项目，直接向 Claude Code 提问即可。
-
-### 方式三：Cursor
-
-Cursor 可以用 Rules 方式接入。把本项目放到你的工作区后，新建：
-
-```text
-.cursor/rules/product-decision-agent.mdc
-```
-
-内容示例：
-
-```md
----
-description: 中文产品决策 Agent，用于产品、运营、增长、数据和协作问题
-alwaysApply: false
----
-
-当用户提出产品、运营、增长、数据、项目推进或组织协作问题时，按照 `skill-source/SKILL.md` 的规则回答。
-
-复杂问题按需参考：
-
-- `skill-source/references/reasoning-engine.md`
-- `skill-source/references/product-playbooks.md`
-- `skill-source/references/response-examples.md`
-
-默认中文输出。不要讲理论，不要引用原文，不要输出历史或政治化话术。重点给出真正问题、原因、行动、风险和必要确认项。
-```
-
-之后你可以在 Cursor 里直接问：
-
-```text
-用产品决策 Agent 帮我看一下：我们 A/B Test 点击率涨了，但订单没涨，要不要全量？
-```
-
-### 方式四：任意 Agent / 自定义 GPT / OpenAI Assistants
-
-通用接入方式：
-
-1. 把 `skill-source/SKILL.md` 作为主系统提示或主规则。
-2. 把 `skill-source/references/*.md` 作为知识文件或可检索上下文。
-3. 告诉 Agent：默认不要暴露方法来源，只输出现代产品语言。
-4. 如果平台支持工具调用，可以把 `skill-source/scripts/quality_gate.py` 作为输出质量检查脚本。
-
-最小系统提示可以这样写：
-
-```text
-你是中文产品决策 Agent。请遵循 skill-source/SKILL.md 的工作方式：
-先判断真实问题、当前阶段、核心阻塞、关键约束和证据充分性，再给出最值得执行的下一步。
-默认中文回答。不要引用原文，不要解释理论来源，不要讲历史或政治化表达。
-```
-
-## 本地验证
-
-正常样例：
-
-```bash
-python3 skill-source/scripts/quality_gate.py evaluation/sample_output_case_*.md
-```
-
-预期：全部 `PASS`。
-
-失败样例：
-
-```bash
-python3 skill-source/scripts/quality_gate.py evaluation/sample_output_bad_example.md
-```
-
-预期：该样例 `FAIL`，用于确认门禁能抓到来源暴露、空话和缺少行动信号。
-
-如果你本地有 Codex 的 `skill-creator` 校验脚本，可以运行：
-
-```bash
-python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skill-source
-```
-
-## 自测覆盖
-
-当前自测覆盖 36 个核心中文产品案例，并额外包含“需要确认”边界样例和失败样例。
-
-覆盖场景包括：
-
-- 需求优先级、老板插需求、版本规划、Roadmap。
-- 增长停滞、DAU 下滑、留存下降、转化问题、活动效果差。
-- 社区冷启动、内容供给不足、竞品冲击、资源不足。
-- 跨部门合作、数据冲突、A/B Test 异常、项目延期。
-- 用户反馈冲突、OKR/KPI、复盘、AI 功能冲动、合规、出海等。
-
-详见：
-
-- `evaluation/self_test_report.md`
-- `evaluation/sample_output_case_*.md`
+- 默认中文，保留 DAU、GMV、CAC、LTV、ROI、MVP、A/B Test 等必要缩写。
+- 默认不引用原文、不解释哲学、不讲历史、不进行人物角色扮演。
+- 信息足够就行动；信息不足先给条件判断和最小验证，不把所有问题抛回用户。
+- 不承诺替代用户研究、数据核验、法务判断或最终业务责任。
+- 用户明确要求追溯方法来源时，才读取维护文档并说明映射。
 
 ## 致谢
 
-这个项目在阅读和研究阶段参考、学习并受到以下开源项目启发。感谢这些项目的作者和维护者：
+本项目在研究、对照和设计阶段参考并受益于以下开源项目。感谢所有作者和维护者：
 
 - [leezythu/maoxuan-skill](https://github.com/leezythu/maoxuan-skill)
 - [zhangtianruiwork-droid/Maoxuan-Changzheng](https://github.com/zhangtianruiwork-droid/Maoxuan-Changzheng)
 - [weiyinfu/MaoZeDongAnthology](https://github.com/weiyinfu/MaoZeDongAnthology)
 
-本项目没有复制这些项目的 Skill prompt 或应用代码，而是重新面向现代互联网产品工作场景设计了隐藏理论来源的产品决策 Agent。上述项目对本项目的研究、对照和方法校准很有帮助。
+本项目没有复制上述项目的 Skill Prompt 或应用代码。它重新面向现代互联网产品工作设计，并刻意把原文、身份扮演和历史表达留在用户可见输出之外。
 
-## 许可证
+## License
 
-本项目以 MIT License 开源。详见 [LICENSE](LICENSE)。
+[MIT License](LICENSE)
 
-请注意：本项目不包含《毛泽东选集》全文，不提供原文检索能力，也不作为政治、历史或哲学知识库使用。
+本仓库不包含《毛泽东选集》全文，不提供原文检索能力，也不作为政治、历史或哲学知识库使用。

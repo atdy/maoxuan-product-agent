@@ -1,4 +1,4 @@
-# 产品决策 Agent 设计说明
+# Maoxuan Product Agent 设计说明
 
 ## 定位
 
@@ -23,8 +23,9 @@
 - 先区分事实、假设和解决方案诉求。
 - 从表面症状追到用户行为、业务机制、数据口径或组织机制。
 - 找当前阶段最影响结果的核心阻塞。
+- 找到阻塞后继续判断当前主导结果的机制，以及什么条件会使它变化。
 - 判断阶段：探索、验证、PMF、增长、规模化、成熟优化、危机止血、组织对齐。
-- 判断证据是否足够：直接行动、快速验证、先诊断。
+- 区分直接行为、一线材料、可追溯汇总、二手判断和孤立个案，再判断是直接行动、快速验证还是先诊断。
 - 做相关方和用户分层：谁受益、谁承担成本、谁能否决、谁可争取。
 - 集中资源，给停止清单。
 - 每个方案都要回到指标、时间窗口或复盘信号。
@@ -33,8 +34,8 @@
 
 Skill 主入口：
 
-- `/Users/xuxing/.codex/skills/product-decision-agent/SKILL.md`
-- `/Users/xuxing/Documents/毛选方法论Agent/skill-source/SKILL.md` 是项目目录内的源码归档，便于维护和协作。
+- `product-decision-agent/SKILL.md` 是标准 Agent Skills 包入口，目录名与 frontmatter 中的 `name` 保持一致。
+- 可通过根目录的 `scripts/install.sh` 安装到 Codex、Claude Code、Cursor 或通用 Agent Skills 目录。
 
 参考资料：
 
@@ -46,6 +47,7 @@ Skill 主入口：
 质量与验证：
 
 - `scripts/quality_gate.py`：检查样例输出是否中文、具体、可执行、无来源暴露。
+- `scripts/test_quality_gate.py`：门禁自身的回归测试。
 - `evaluation/self_test_report.md`：36 个中文产品案例自测。
 - `evaluation/sample_output_case_*.md`：代表性样例输出。
 - `evaluation/sample_output_bad_example.md`：故意失败样例，用于验证门禁能抓到来源暴露和空话。

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Quality checks for Product Decision Agent sample outputs.
+"""Quality checks for Maoxuan Product Agent sample outputs.
 
 Usage:
   quality_gate.py output1.md output2.md ...
@@ -129,17 +129,18 @@ def count_questions(text: str) -> int:
         return 0
 
     section = match.group("section")
-    line_questions = 0
-    loose_questions = 0
+    questions = 0
     for line in section.splitlines():
         stripped = line.strip()
         if not stripped:
             continue
-        if re.search(r"[？?]\s*$", stripped):
-            line_questions += 1
-        else:
-            loose_questions += len(re.findall(r"[？?]", stripped))
-    return line_questions + loose_questions
+        # Count sentence-ending question marks. This ignores URL query strings
+        # such as https://example.com?a=1 while still catching two questions
+        # written on the same line.
+        questions += len(
+            re.findall(r"？|\?(?=[\s\u4e00-\u9fff]|$)", stripped)
+        )
+    return questions
 
 
 def chinese_ratio(text: str) -> float:
