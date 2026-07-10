@@ -32,6 +32,14 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-
 4. 是否说明现在不要做什么。
 5. 是否避免空话、理论说明和来源暴露。
 
+## 网站与品牌资产
+
+- GitHub Pages 源码在 `docs/`，SEO、JSON-LD、`robots.txt`、`sitemap.xml` 和 `llms.txt` 都属于发布契约。
+- 社交预览图、首屏背景图和回答样例图的可维护源文件是 `design/brand-assets.html`。
+- 打开 `design/brand-assets.html?asset=social-preview`、`?asset=hero-map` 或 `?asset=product-output`，可单独渲染对应画布。
+- 重新导出图片时保持 `1280x640`、`1600x900` 和 `1200x780` 的 PNG 尺寸；`scripts/check_publication.py` 会拒绝错误格式或尺寸。
+- 改动页面后至少检查 1440px 桌面、390px 手机和 320x568 小屏，不允许出现横向溢出、文字遮挡或首屏看不到下一段内容。
+
 ## Pull Request
 
 PR 请说明：

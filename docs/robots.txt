@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atdy.github.io/maoxuan-product-agent/sitemap.xml

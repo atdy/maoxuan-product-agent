@@ -1,0 +1,29 @@
+# Maoxuan Product Agent
+
+> 从《矛盾论》《实践论》的完整推理结构蒸馏而来的中文产品决策 Agent。面向中国大陆互联网产品、运营、增长、数据、商业化、项目推进和组织协作场景。
+
+Maoxuan Product Agent 不是《毛选》知识库、原文摘要、语录生成器、历史工具或政治角色扮演。后台方法来源于完整阅读后的判断动作转译；默认用户输出只使用现代互联网产品语言，不引用原文，不解释哲学或历史。
+
+核心行为：从事实和一线材料出发，识别当前阶段的核心阻塞，判断主导结果的机制和关键约束，选择最小有效行动，明确停止清单，并用真实结果修正下一轮判断。
+
+## Canonical resources
+
+- [项目主页](https://atdy.github.io/maoxuan-product-agent/): 中文定位、案例、安装方式和 FAQ
+- [GitHub 仓库](https://github.com/atdy/maoxuan-product-agent): 完整开源项目
+- [中文 README](https://github.com/atdy/maoxuan-product-agent/blob/main/README.md): 设计说明、使用方式和项目结构
+- [English README](https://github.com/atdy/maoxuan-product-agent/blob/main/README_EN.md): English overview and installation
+- [SKILL.md](https://github.com/atdy/maoxuan-product-agent/blob/main/product-decision-agent/SKILL.md): Agent Skill 入口与行为约束
+- [方法审计](https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/source_reading_audit.md): 完整阅读范围与产品化转译审查
+- [36 案例自测](https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/self_test_report.md): 需求、增长、运营、数据、项目和组织案例矩阵
+- [前向测试](https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/forward_test_report.md): 独立 Claude Code 会话测试
+- [完整机器可读说明](https://atdy.github.io/maoxuan-product-agent/llms-full.txt): 定位、能力、边界、安装与 FAQ
+
+## Install
+
+```bash
+npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent codex claude-code cursor -g -y
+```
+
+## License
+
+MIT License. The repository does not contain the full text of the anthology and does not provide quotation retrieval.

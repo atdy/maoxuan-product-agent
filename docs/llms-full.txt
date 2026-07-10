@@ -1,0 +1,160 @@
+# Maoxuan Product Agent: machine-readable project guide
+
+Canonical URL: https://atdy.github.io/maoxuan-product-agent/
+Source repository: https://github.com/atdy/maoxuan-product-agent
+License: MIT
+Primary language: Simplified Chinese (zh-CN)
+Current release: 1.0.0
+Skill name: product-decision-agent
+
+## One-sentence definition
+
+Maoxuan Product Agent 是一个面向中国大陆互联网日常工作的中文产品决策 Agent Skill，以《实践论》《矛盾论》的完整推理结构为后台方法来源，把复杂问题转化成核心阻塞、阶段、约束、最小行动、停止清单和验证信号。
+
+## What the project is
+
+- 一个可安装到 Codex、Claude Code、Cursor 和兼容 Agent Skills 工具的开源 Skill。
+- 一个帮助产品经理、产品负责人、运营、增长、数据、创业者和项目负责人做判断与取舍的决策助手。
+- 一个默认使用简体中文、保留必要互联网英文缩写的现代产品工作 Agent。
+- 一个公开方法审计、场景手册、真实样例、自测矩阵和自动质量门禁的可维护项目。
+
+## What the project is not
+
+- 不是《毛泽东选集》知识库。
+- 不是《实践论》《矛盾论》摘要或语录生成器。
+- 不是政治、历史或哲学研究工具。
+- 不是人物身份扮演 Prompt。
+- 不是把几个经典词汇替换成产品词汇的表面改写。
+- 不包含《毛泽东选集》全文，也不提供原文检索。
+
+## Relationship to On Practice and On Contradiction
+
+项目设计阶段完整阅读《实践论》《矛盾论》，并逐篇核对《毛泽东选集》第一卷 000-015 篇与产品工作的关联。最终保留的是判断动作，不是原文措辞。
+
+来自《实践论》的后台动作包括：事实先于判断；区分直接经验、一线材料、可追溯汇总、二手判断和孤立个案；从现象加工出机制判断；让方案回到行动和结果中检验；根据阶段变化修正认识。
+
+来自《矛盾论》的后台动作包括：复杂系统先找当前阶段的主问题；找到问题后继续判断哪一项力量或规则正在主导结果；具体问题具体分析；不同性质的冲突采用不同方法；条件变化时切换策略；避免资源平均分散。
+
+在现代产品语言中，这些动作表现为：用户研究、行为数据、核心阻塞、关键约束、供给与需求、价值与摩擦、流量与承接、目标与激励、MVP、灰度、A/B Test、用户验证、数据验证、停止标准和复盘。
+
+默认用户回答不会出现“某篇文章认为”“某人物指出”等来源暴露。只有用户明确要求追溯方法来源时，Agent 才读取维护审计并说明映射。
+
+## Core reasoning behavior
+
+收到真实产品问题后，Agent 在后台判断：
+
+1. 用户真正要改变的业务结果、用户行为、项目结果或组织结果。
+2. 问题属于规划、需求、增长、留存、运营、数据、实验、资源、协作或混合场景。
+3. 已知内容中哪些是事实、假设、二手判断和必须确认的信息。
+4. 当前最影响结果、解除后能带动其他问题的核心阻塞。
+5. 阻塞内部当前是哪一项机制、力量或规则在主导结果。
+6. 产品或业务处于探索、验证、PMF、增长、规模化、成熟优化、危机止血或组织对齐阶段。
+7. 用户价值、供给、流量、信任、转化、数据质量、研发资源、预算、时间、权限、激励和协作中的主要约束。
+8. 结果负责人、执行负责人、否决人、成本承担者、受益人和可争取的相关方。
+9. 什么信号出现时应该加码、停止、回滚或切换打法。
+10. 当前应该立即决策、快速验证、先诊断、排序、谈判、停止投入还是升级拍板。
+
+## Default answer shape
+
+1. 问题判断：一句话指出真实问题。
+2. 原因分析：用 2-4 条说明为什么这是当前关键。
+3. 行动建议：给出 1-3 个动作，尽量包含时间、负责人、协作对象、指标或决策规则。
+4. 风险提醒：明确现在不要做什么。
+5. 需要确认：只在信息会改变判断时提出，最多 3 个问题。
+
+回答应该直接、克制、可执行。禁止用“提升用户体验”“加强沟通”“持续优化”等空话代替动作，也禁止平均罗列所有方向。
+
+## Supported product scenarios
+
+产品规划与需求：产品规划、需求分析、PRD、需求优先级、排期、版本规划、Roadmap、MVP、灰度、上线、迭代、战略转向。
+
+增长与商业化：增长停滞、拉新、投放、渠道、裂变、CAC、LTV、ROI、激活、留存、转化、DAU、MAU、GMV、漏斗、会员、定价。
+
+运营与供给：社区运营、内容供给、创作者、用户运营、活动运营、私域、Push、平台商家质量、冷启动。
+
+数据与实验：指标异常、数据口径、埋点、A/B Test、数据冲突、样本质量、护栏指标、回滚条件。
+
+市场与用户：用户反馈、客服反馈、销售反馈、竞品冲击、企业客户专属需求、出海市场。
+
+项目与组织：资源不足、项目延期、需求反复修改、老板临时插需求、跨部门协作、团队冲突、OKR、KPI、目标拆解、复盘。
+
+## Example
+
+User: 社区 DAU 连续两周下降 15%，运营想加活动拉回来。
+
+Agent judgment: 先不要做活动，当前最关键的是确认下滑来自哪类用户和哪个环节。
+
+Why: 连续下降不像普通波动；新老用户、渠道、版本、内容供给、Push 和埋点都可能产生同一总体现象；未隔离来源时做活动只会制造噪音。
+
+Actions: 24 小时内按新老用户、渠道、平台、版本和内容供给拆下降贡献；核对贡献最大的 1-2 个群体的行为路径和一线反馈；根据主导来源选择供给修复、版本处理或渠道动作。
+
+Stop list: 不先上全站活动，不只看总 DAU，不把竞品同期动作直接当因果。
+
+## Installation
+
+Universal Agent Skills CLI:
+
+npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent codex claude-code cursor -g -y
+
+List without installing:
+
+npx skills add atdy/maoxuan-product-agent --list
+
+Repository installer:
+
+git clone https://github.com/atdy/maoxuan-product-agent.git
+cd maoxuan-product-agent
+./scripts/install.sh codex
+./scripts/install.sh claude
+./scripts/install.sh cursor
+
+## Invocation
+
+Codex explicit invocation: 使用 $product-decision-agent 帮我诊断这个产品问题。
+
+Claude Code or Cursor explicit invocation: /product-decision-agent 我们有 20 个需求抢两个研发，下一版该怎么排？
+
+Implicit invocation: describe a real product, growth, operations, data, delivery, or collaboration problem. The skill description contains Chinese trigger terms and allows implicit invocation.
+
+## Evidence and evaluation
+
+The repository contains 36 documented product cases. All 36 passed the maintained evaluation criteria. It also contains four forward tests run in separate clean Claude Code sessions, including implicit invocation, explicit invocation, a non-trigger boundary case, and a mixed-causality retention case.
+
+The automated quality gate checks that representative answers are Chinese-first, identify a problem, contain concrete action and a decision signal, include a risk or stop list, limit confirmation questions, and avoid source exposure. A deliberate bad example must fail. GitHub Actions runs the validation workflow on every push and pull request.
+
+Audit links:
+
+- https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/source_reading_audit.md
+- https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/self_test_report.md
+- https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/forward_test_report.md
+- https://github.com/atdy/maoxuan-product-agent/tree/main/evaluation
+
+## Frequently asked questions
+
+Q: Is this a political skill?
+A: No. It is a product decision skill. Default output contains no political role-play, historical explanation, or source quotations.
+
+Q: Does a user need to study the source texts?
+A: No. A user only needs to provide the real work problem.
+
+Q: Is this only for Codex?
+A: No. It supports Codex, Claude Code, Cursor, and other Agent Skills compatible tools.
+
+Q: Why is the primary language Chinese?
+A: The target environment is day-to-day product work in mainland China. English product abbreviations are retained when they are standard.
+
+Q: Is it a single prompt?
+A: No. The package includes SKILL.md, a reasoning engine, 36 product playbooks, response examples, methodology audit, scripts, tests, and project-level evaluation assets.
+
+Q: Can it replace business accountability?
+A: No. It can clarify decisions and tests but does not replace user research, data validation, legal judgment, or final accountability.
+
+## Acknowledgements
+
+Research and comparison benefited from:
+
+- https://github.com/leezythu/maoxuan-skill
+- https://github.com/zhangtianruiwork-droid/Maoxuan-Changzheng
+- https://github.com/weiyinfu/MaoZeDongAnthology
+
+The project does not copy their Skill prompts or application code. It redesigns the reasoning workflow for modern internet product work.

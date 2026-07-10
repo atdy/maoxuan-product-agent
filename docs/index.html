@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maoxuan Product Agent｜从《矛盾论》《实践论》蒸馏的中文产品决策 Agent</title>
+    <meta name="description" content="面向中国大陆互联网产品、运营、增长、数据和组织协作场景的开源决策 Agent。以《矛盾论》《实践论》的完整推理结构为后台，默认只输出直接、简洁、可执行的现代产品建议。">
+    <meta name="keywords" content="产品经理,产品决策,产品管理,需求优先级,增长,留存,DAU,运营,Agent Skill,Codex,Claude Code,Cursor,矛盾论,实践论,中文 AI Agent">
+    <meta name="author" content="atdy">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="theme-color" content="#f7f7f5">
+    <link rel="canonical" href="https://atdy.github.io/maoxuan-product-agent/">
+    <link rel="alternate" hreflang="zh-CN" href="https://atdy.github.io/maoxuan-product-agent/">
+    <link rel="alternate" hreflang="x-default" href="https://github.com/atdy/maoxuan-product-agent/blob/main/README_EN.md">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Maoxuan Product Agent">
+    <meta property="og:title" content="Maoxuan Product Agent｜把《矛盾论》《实践论》的判断力用在产品工作里">
+    <meta property="og:description" content="不是理论解释器，而是一位会定位核心阻塞、判断阶段和给出下一步的中文产品决策 Agent。">
+    <meta property="og:url" content="https://atdy.github.io/maoxuan-product-agent/">
+    <meta property="og:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta property="og:image:alt" content="Maoxuan Product Agent，从《矛盾论》《实践论》蒸馏的中文产品决策 Agent">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Maoxuan Product Agent">
+    <meta name="twitter:description" content="从《矛盾论》《实践论》蒸馏的中文产品决策 Agent。">
+    <meta name="twitter:image" content="https://atdy.github.io/maoxuan-product-agent/assets/social-preview.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://atdy.github.io/maoxuan-product-agent/#software",
+            "name": "Maoxuan Product Agent",
+            "alternateName": "毛选产品决策 Agent",
+            "description": "从《矛盾论》《实践论》的完整推理结构蒸馏而来的中文产品决策 Agent，服务于产品、运营、增长、数据和组织协作场景。",
+            "url": "https://atdy.github.io/maoxuan-product-agent/",
+            "downloadUrl": "https://github.com/atdy/maoxuan-product-agent",
+            "codeRepository": "https://github.com/atdy/maoxuan-product-agent",
+            "applicationCategory": "BusinessApplication",
+            "applicationSubCategory": "Product Management",
+            "operatingSystem": "Cross-platform",
+            "softwareVersion": "1.0.0",
+            "inLanguage": ["zh-CN", "en"],
+            "isAccessibleForFree": true,
+            "license": "https://opensource.org/license/mit",
+            "author": {
+              "@type": "Person",
+              "name": "atdy",
+              "url": "https://github.com/atdy"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "CNY"
+            },
+            "keywords": "产品决策, 产品经理, 需求优先级, 增长, 留存, 运营, Agent Skill, Codex, Claude Code, Cursor"
+          },
+          {
+            "@type": "HowTo",
+            "@id": "https://atdy.github.io/maoxuan-product-agent/#install-howto",
+            "name": "安装 Maoxuan Product Agent",
+            "description": "使用 Agent Skills CLI 将中文产品决策 Agent 安装到 Codex、Claude Code 和 Cursor。",
+            "totalTime": "PT1M",
+            "supply": [{"@type": "HowToSupply", "name": "Node.js 与 npx"}],
+            "step": [
+              {
+                "@type": "HowToStep",
+                "name": "运行安装命令",
+                "text": "运行 npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent codex claude-code cursor -g -y"
+              },
+              {
+                "@type": "HowToStep",
+                "name": "提出真实产品问题",
+                "text": "在 Agent 中描述需求、增长、数据、运营或协作问题，或显式调用 product-decision-agent。"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://atdy.github.io/maoxuan-product-agent/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Maoxuan Product Agent 是什么？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "一个面向中国大陆互联网工作场景的开源中文产品决策 Agent。它帮助产品经理和运营人员定位真实问题、判断阶段与约束，并给出最值得执行的下一步。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "它与《矛盾论》《实践论》是什么关系？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "后台推理来自对两篇文章完整结构的蒸馏：从事实出发、定位当前核心阻塞、判断主导机制、集中资源、用行动验证并根据结果修正。默认输出不引用原文，也不讲历史或哲学。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "支持哪些 AI Agent？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "标准 Skill 包可用于 Codex、Claude Code、Cursor 和其他兼容 Agent Skills 的工具。仓库提供通用 CLI、平台安装脚本和手动安装路径。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "可以解决哪些产品问题？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "覆盖需求优先级、Roadmap、版本规划、增长、留存、转化、社区和内容运营、数据异常、A/B Test、竞品、资源冲突、项目延期、老板插需求、跨部门协作、OKR/KPI 与复盘等 36 类场景。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "会不会输出政治化内容或原文语录？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不会。除非用户明确追溯方法来源，否则默认只用现代互联网产品语言，不引用原文、不讲历史、不进行人物角色扮演。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "这个项目是否经过测试？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "是。项目包含 36 个真实产品案例、四条独立会话前向测试、错误样例和自动质量门禁，GitHub Actions 会在每次提交和 Pull Request 时运行验证。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="#top" aria-label="Maoxuan Product Agent 首页">
+          <span class="brand-mark" aria-hidden="true">决</span>
+          <span>Maoxuan Product Agent</span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#method">方法</a>
+          <a href="#scenarios">场景</a>
+          <a href="#install">安装</a>
+          <a href="#faq">FAQ</a>
+          <a class="repo-link" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer">
+            <span>GitHub</span>
+            <img src="assets/icons/external-link.svg" alt="" width="16" height="16">
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-inner">
+          <p class="source-line">《矛盾论》 × 《实践论》 <span>完整方法蒸馏</span></p>
+          <h1>Maoxuan<br>Product Agent</h1>
+          <p class="hero-kicker">把复杂产品问题，压缩成一个值得执行的判断。</p>
+          <p class="hero-copy">面向中国大陆互联网产品、运营、增长、数据和组织协作场景。后台保留方法精髓，前台只说现代产品语言。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#install">30 秒安装</a>
+            <a class="button button-secondary" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer">
+              查看源码
+              <img src="assets/icons/external-link.svg" alt="" width="17" height="17">
+            </a>
+          </div>
+          <dl class="hero-proof" aria-label="项目质量数据">
+            <div><dt>36</dt><dd>真实场景</dd></div>
+            <div><dt>36/36</dt><dd>自测通过</dd></div>
+            <div><dt>4</dt><dd>独立前向测试</dd></div>
+            <div><dt>MIT</dt><dd>开源许可</dd></div>
+          </dl>
+        </div>
+        <a class="next-hint" href="#example">看一次真实判断 <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="proof-band" aria-label="支持平台">
+        <div class="section-shell proof-row">
+          <span>Agent Skills 标准</span>
+          <strong>Codex</strong>
+          <strong>Claude Code</strong>
+          <strong>Cursor</strong>
+          <span>默认简体中文</span>
+        </div>
+      </section>
+
+      <section class="section example-section" id="example">
+        <div class="section-shell">
+          <div class="section-heading">
+            <p class="eyebrow">真实案例</p>
+            <h2>DAU 下滑时，先别急着做活动</h2>
+            <p>它不会平均罗列十种办法，而是先判断：当前缺的是动作，还是对问题来源的确认。</p>
+          </div>
+          <blockquote class="case-question">“社区 DAU 连续两周下降 15%，运营想加活动拉回来。”</blockquote>
+          <figure class="product-preview">
+            <img src="assets/product-output-preview.png" alt="产品决策 Agent 对社区 DAU 下滑问题的中文分析：先拆新老用户、渠道、平台、版本和内容供给，再决定是否做活动" width="1200" height="780" loading="eager">
+            <figcaption>回答包含判断、证据、动作、决策信号和停止清单。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section method-section" id="method">
+        <div class="section-shell">
+          <div class="section-heading light-heading">
+            <p class="eyebrow">后台推理</p>
+            <h2>蒸馏的是判断动作，不是原文措辞</h2>
+            <p>默认不引用经典、不讲历史，也不做身份扮演。方法只在后台决定该看什么、先做什么、何时换打法。</p>
+          </div>
+
+          <ol class="reasoning-flow" aria-label="产品决策闭环">
+            <li><span>01</span><strong>事实</strong><small>区分数据、行为、反馈与假设</small></li>
+            <li><span>02</span><strong>阻塞</strong><small>找到当前最影响结果的问题</small></li>
+            <li><span>03</span><strong>机制</strong><small>判断哪一项力量正在主导</small></li>
+            <li><span>04</span><strong>行动</strong><small>选择最小、有效、可回滚动作</small></li>
+            <li><span>05</span><strong>修正</strong><small>用真实结果更新下一轮判断</small></li>
+          </ol>
+
+          <div class="translation-grid">
+            <div>
+              <p>从真实材料出发</p>
+              <strong>用户行为 · 业务数据 · 一线反馈</strong>
+            </div>
+            <div>
+              <p>找到当前主问题</p>
+              <strong>核心阻塞 · 关键路径 · 资源取舍</strong>
+            </div>
+            <div>
+              <p>回到行动中验证</p>
+              <strong>MVP · 灰度 · A/B Test · 数据复盘</strong>
+            </div>
+          </div>
+          <a class="text-link light-link" href="https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/source_reading_audit.md" target="_blank" rel="noreferrer">查看完整阅读与转译审计 <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section difference-section">
+        <div class="section-shell">
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">为什么不是普通 Prompt</p>
+            <h2>先做取舍，再给建议</h2>
+          </div>
+          <div class="comparison-table" role="table" aria-label="普通产品 Prompt 与 Maoxuan Product Agent 对比">
+            <div class="comparison-row comparison-head" role="row">
+              <span role="columnheader">常见回答</span>
+              <span role="columnheader">Maoxuan Product Agent</span>
+            </div>
+            <div class="comparison-row" role="row">
+              <span role="cell">罗列所有可能方向</span>
+              <strong role="cell">找当前阶段最影响结果的核心阻塞</strong>
+            </div>
+            <div class="comparison-row" role="row">
+              <span role="cell">套行业最佳实践</span>
+              <strong role="cell">先核对人群、阶段、约束和证据</strong>
+            </div>
+            <div class="comparison-row" role="row">
+              <span role="cell">把数据或反馈直接当结论</span>
+              <strong role="cell">区分事实、假设、二手判断和孤立个案</strong>
+            </div>
+            <div class="comparison-row" role="row">
+              <span role="cell">给一个完整大方案</span>
+              <strong role="cell">证据不足时先做最小诊断或可回滚验证</strong>
+            </div>
+            <div class="comparison-row" role="row">
+              <span role="cell">只说应该做什么</span>
+              <strong role="cell">同时给停止清单和切换条件</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section scenarios-section" id="scenarios">
+        <div class="section-shell">
+          <div class="section-heading">
+            <p class="eyebrow">36 类工作场景</p>
+            <h2>从需求争抢，到指标异常，再到组织推进</h2>
+            <p>知识不按理论章节组织，而是按产品负责人每天真正遇到的问题组织。</p>
+          </div>
+          <div class="scenario-columns">
+            <div>
+              <h3>产品与规划</h3>
+              <p>需求优先级</p><p>版本规划</p><p>Roadmap</p><p>MVP 与灰度</p><p>企业客户需求</p><p>战略转向</p>
+            </div>
+            <div>
+              <h3>增长与运营</h3>
+              <p>增长停滞</p><p>拉新与投放</p><p>留存与转化</p><p>社区冷启动</p><p>内容供给</p><p>活动效果</p>
+            </div>
+            <div>
+              <h3>数据与商业化</h3>
+              <p>DAU / MAU</p><p>指标异常</p><p>数据口径</p><p>A/B Test</p><p>CAC / LTV / ROI</p><p>定价与会员</p>
+            </div>
+            <div>
+              <h3>项目与组织</h3>
+              <p>老板临时插需求</p><p>资源不足</p><p>项目延期</p><p>跨部门协作</p><p>OKR / KPI</p><p>复盘与纠偏</p>
+            </div>
+          </div>
+          <a class="text-link" href="https://github.com/atdy/maoxuan-product-agent/blob/main/evaluation/self_test_report.md" target="_blank" rel="noreferrer">查看 36 个案例的测试矩阵 <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="section install-section" id="install">
+        <div class="section-shell install-shell">
+          <div class="section-heading light-heading">
+            <p class="eyebrow">安装</p>
+            <h2>一分钟，放进你正在使用的 Agent</h2>
+            <p>标准 Agent Skills 目录结构，无服务端、无 API Key、无付费依赖。</p>
+          </div>
+
+          <div class="install-tool" data-install-tool>
+            <div class="segmented-control" role="tablist" aria-label="选择安装方式">
+              <button type="button" role="tab" aria-selected="true" aria-controls="panel-universal" id="tab-universal" data-tab="universal">通用安装</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="panel-codex" id="tab-codex" data-tab="codex">Codex</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="panel-claude" id="tab-claude" data-tab="claude">Claude Code</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="panel-cursor" id="tab-cursor" data-tab="cursor">Cursor</button>
+            </div>
+
+            <div class="install-panels">
+              <section class="install-panel" role="tabpanel" id="panel-universal" aria-labelledby="tab-universal" data-panel="universal">
+                <p>一次安装到 Codex、Claude Code 和 Cursor。</p>
+                <div class="code-line">
+                  <code>npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent codex claude-code cursor -g -y</code>
+                  <button class="copy-button" type="button" data-copy aria-label="复制通用安装命令" title="复制命令">
+                    <img src="assets/icons/copy.svg" alt="" width="20" height="20">
+                  </button>
+                </div>
+              </section>
+              <section class="install-panel" role="tabpanel" id="panel-codex" aria-labelledby="tab-codex" data-panel="codex" hidden>
+                <p>克隆后安装到当前用户的 Agent Skills 目录。</p>
+                <div class="code-line">
+                  <code>git clone https://github.com/atdy/maoxuan-product-agent.git &amp;&amp; cd maoxuan-product-agent &amp;&amp; ./scripts/install.sh codex</code>
+                  <button class="copy-button" type="button" data-copy aria-label="复制 Codex 安装命令" title="复制命令">
+                    <img src="assets/icons/copy.svg" alt="" width="20" height="20">
+                  </button>
+                </div>
+              </section>
+              <section class="install-panel" role="tabpanel" id="panel-claude" aria-labelledby="tab-claude" data-panel="claude" hidden>
+                <p>克隆后安装到 Claude Code 用户级 Skills 目录。</p>
+                <div class="code-line">
+                  <code>git clone https://github.com/atdy/maoxuan-product-agent.git &amp;&amp; cd maoxuan-product-agent &amp;&amp; ./scripts/install.sh claude</code>
+                  <button class="copy-button" type="button" data-copy aria-label="复制 Claude Code 安装命令" title="复制命令">
+                    <img src="assets/icons/copy.svg" alt="" width="20" height="20">
+                  </button>
+                </div>
+              </section>
+              <section class="install-panel" role="tabpanel" id="panel-cursor" aria-labelledby="tab-cursor" data-panel="cursor" hidden>
+                <p>克隆后安装到 Cursor 用户级 Skills 目录。</p>
+                <div class="code-line">
+                  <code>git clone https://github.com/atdy/maoxuan-product-agent.git &amp;&amp; cd maoxuan-product-agent &amp;&amp; ./scripts/install.sh cursor</code>
+                  <button class="copy-button" type="button" data-copy aria-label="复制 Cursor 安装命令" title="复制命令">
+                    <img src="assets/icons/copy.svg" alt="" width="20" height="20">
+                  </button>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <p class="install-note">安装后，直接描述真实问题即可自动触发；也可以显式使用 <code>$product-decision-agent</code> 或 <code>/product-decision-agent</code>。</p>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq">
+        <div class="section-shell faq-shell">
+          <div class="section-heading compact-heading">
+            <p class="eyebrow">FAQ</p>
+            <h2>使用前最常问的几个问题</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>它与《矛盾论》《实践论》到底是什么关系？</summary>
+              <p>后台推理来自对两篇文章完整结构的蒸馏：从事实出发、定位当前核心阻塞、判断主导机制、集中资源、用行动验证，并根据真实结果修正。它不是摘取几个观点后套成 Prompt。</p>
+            </details>
+            <details>
+              <summary>为什么默认不引用原文？</summary>
+              <p>这个项目的目标是解决产品问题，不是教授理论。原文与映射只保留在维护审计中，日常回答全部转换成需求、瓶颈、约束、MVP、灰度、数据验证和组织协作语言。</p>
+            </details>
+            <details>
+              <summary>只适合 Codex 吗？</summary>
+              <p>不是。Skill 遵循标准目录结构，已提供 Codex、Claude Code、Cursor 和通用 Agent Skills 安装方式。前向测试还在全新 Claude Code 会话中验证过真实触发行为。</p>
+            </details>
+            <details>
+              <summary>我需要先学习《毛选》吗？</summary>
+              <p>不需要。你只需提出真实工作问题，例如需求怎么排、留存为什么掉、活动为什么失效、项目延期怎么处理。Agent 会在后台完成判断。</p>
+            </details>
+            <details>
+              <summary>它会替我拍板吗？</summary>
+              <p>它会给出明确建议、行动顺序和切换条件，但不会伪造缺失事实，也不替代用户研究、数据核验、法务判断和最终业务责任。</p>
+            </details>
+            <details>
+              <summary>如何确认它不是一个包装精美的通用 Prompt？</summary>
+              <p>仓库公开了完整方法审计、36 场景测试矩阵、代表性输出、错误样例、四条独立会话前向测试和自动质量门禁。所有结论都可以复查和回归。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-band">
+        <div class="section-shell closing-inner">
+          <div>
+            <p class="eyebrow">下一步</p>
+            <h2>把你现在最难拍板的问题交给它。</h2>
+          </div>
+          <div class="closing-actions">
+            <a class="button button-primary" href="#install">安装 Skill</a>
+            <a class="button button-secondary dark-secondary" href="https://github.com/atdy/maoxuan-product-agent" target="_blank" rel="noreferrer">在 GitHub 查看 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-shell footer-inner">
+        <div>
+          <strong>Maoxuan Product Agent</strong>
+          <p>从《矛盾论》《实践论》蒸馏的中文产品决策 Agent。</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/atdy/maoxuan-product-agent">GitHub</a>
+          <a href="https://github.com/atdy/maoxuan-product-agent/blob/main/README_EN.md">English</a>
+          <a href="llms.txt">llms.txt</a>
+          <a href="https://github.com/atdy/maoxuan-product-agent/blob/main/LICENSE">MIT License</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

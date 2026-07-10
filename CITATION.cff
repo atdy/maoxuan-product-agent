@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this project in research, teaching, or agent evaluation, please cite it as below."
+title: "Maoxuan Product Agent"
+abstract: "A Chinese product decision Agent Skill distilled from the reasoning methods of On Practice and On Contradiction, translated into modern product, growth, operations, data, and collaboration workflows."
+authors:
+  - family-names: "atdy"
+    website: "https://github.com/atdy"
+version: 1.0.0
+date-released: 2026-07-10
+license: MIT
+repository-code: "https://github.com/atdy/maoxuan-product-agent"
+url: "https://atdy.github.io/maoxuan-product-agent/"
+keywords:
+  - product management
+  - decision making
+  - agent skills
+  - Chinese AI agent
+  - Codex
+  - Claude Code
+  - Cursor
+  - On Practice
+  - On Contradiction

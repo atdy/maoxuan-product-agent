@@ -2,9 +2,16 @@
 
 ### 从《矛盾论》《实践论》蒸馏出来的中文产品工作 Agent
 
+[在线介绍](https://atdy.github.io/maoxuan-product-agent/) · [English](README_EN.md) · [安装](#安装) · [真实案例](#回答长什么样) · [设计审计](evaluation/source_reading_audit.md)
+
+[![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
+[![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)
+[![GitHub release](https://img.shields.io/github/v/release/atdy/maoxuan-product-agent?color=1f6b4f)](https://github.com/atdy/maoxuan-product-agent/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2f6f4e.svg)](LICENSE)
 ![Language](https://img.shields.io/badge/Language-中文-cb2b2b.svg)
 ![Agent Skills](https://img.shields.io/badge/Agent_Skills-Compatible-2563eb.svg)
+
+![Maoxuan Product Agent：从《矛盾论》《实践论》蒸馏的中文产品决策 Agent](docs/assets/social-preview.png)
 
 > 复杂的产品问题，通常不是没有办法，而是没有找到当前最该解决的那个问题。
 
@@ -27,6 +34,22 @@
 - 哪些事情现在不要做。
 
 **它的来源是《矛盾论》《实践论》，它的工作语言是现代互联网产品。**
+
+### 30 秒开始
+
+一条命令安装到 Codex、Claude Code 和 Cursor：
+
+~~~bash
+npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent codex claude-code cursor -g -y
+~~~
+
+然后直接说真实问题：
+
+~~~text
+使用 product-decision-agent 帮我判断：A/B Test 点击率涨了 12%，但订单没涨，要不要全量？
+~~~
+
+安装命令已经在隔离环境中做过端到端验证。也可以继续使用仓库自带的 [安装脚本](#一键安装) 或手动安装。
 
 ## 它不是什么
 
@@ -129,6 +152,20 @@ Agent：
 
 仓库中的标准 Skill 包是 <code>product-decision-agent/</code>。它遵循 Agent Skills 目录结构，可以同时用于 Codex、Claude Code、Cursor 和其他兼容 Agent。
 
+### 通用安装器（推荐）
+
+通过 Vercel 的开源 Agent Skills CLI，一次安装到 Codex、Claude Code 和 Cursor：
+
+~~~bash
+npx skills add atdy/maoxuan-product-agent --skill product-decision-agent --agent codex claude-code cursor -g -y
+~~~
+
+只查看仓库中可安装的 Skill，不写入本机：
+
+~~~bash
+npx skills add atdy/maoxuan-product-agent --list
+~~~
+
 ### 一键安装
 
 先克隆仓库：
@@ -221,10 +258,16 @@ Claude Code 或 Cursor：
 │       ├── quality_gate.py        # 输出质量门禁
 │       └── test_quality_gate.py   # 门禁回归测试
 ├── evaluation/                    # 36 案例测试与代表性输出
+├── docs/                          # GitHub Pages、SEO/GEO 与品牌资产
+├── design/brand-assets.html       # 三张品牌图的可维护视觉源
 ├── scripts/
 │   ├── install.sh                 # 多 Agent 安装脚本
+│   ├── check_publication.py       # 页面、元数据、链接和图片门禁
 │   └── validate.sh                # 项目级验证入口
 ├── .github/workflows/validate.yml # GitHub Actions
+├── README_EN.md                   # 英文搜索入口
+├── CHANGELOG.md
+├── CITATION.cff
 ├── CONTRIBUTING.md
 └── LICENSE
 ~~~
@@ -243,6 +286,7 @@ Claude Code 或 Cursor：
 - 代表性正确答案全部通过。
 - 故意包含来源暴露和空话的错误答案必须失败。
 - 自测报告至少保留 36 个通过案例。
+- GitHub Pages 的 SEO/GEO 元数据、本地链接和图片尺寸正确。
 
 如果本机有 Codex 的 <code>skill-creator</code>：
 
@@ -251,6 +295,8 @@ python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py product-
 ~~~
 
 当前测试资产见 [self_test_report.md](evaluation/self_test_report.md) 和 [forward_test_report.md](evaluation/forward_test_report.md)。贡献规范见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+如果它确实帮你做出了一个更清楚的产品决策，可以给仓库一个 [Star](https://github.com/atdy/maoxuan-product-agent)。这会让更多中文产品同学更容易找到它。
 
 ## 设计边界
 

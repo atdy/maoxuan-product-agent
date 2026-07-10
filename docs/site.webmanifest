@@ -1,0 +1,18 @@
+{
+  "name": "Maoxuan Product Agent",
+  "short_name": "Product Agent",
+  "description": "从《矛盾论》《实践论》蒸馏的中文产品决策 Agent",
+  "lang": "zh-CN",
+  "start_url": "/maoxuan-product-agent/",
+  "display": "standalone",
+  "background_color": "#f7f7f5",
+  "theme_color": "#c2332d",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

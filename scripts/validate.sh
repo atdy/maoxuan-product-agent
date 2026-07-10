@@ -8,6 +8,7 @@ cd "$repo_dir"
 
 python3 product-decision-agent/scripts/test_quality_gate.py
 python3 product-decision-agent/scripts/quality_gate.py evaluation/sample_output_case_*.md
+python3 scripts/check_publication.py
 
 if python3 product-decision-agent/scripts/quality_gate.py evaluation/sample_output_bad_example.md; then
   echo "Expected the deliberate bad example to fail." >&2

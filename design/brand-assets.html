@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <title>Maoxuan Product Agent brand assets</title>
+    <style>
+      :root {
+        --ink: #161816;
+        --muted: #666c67;
+        --paper: #f7f7f5;
+        --white: #ffffff;
+        --line: #d6dad6;
+        --red: #c2332d;
+        --red-dark: #9e2924;
+        --green: #1f6b4f;
+        --blue: #245a87;
+        --yellow: #f1c84b;
+        --dark: #171a18;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: #2a2d2a; }
+      body { width: 1600px; font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; letter-spacing: 0; }
+      .canvas { position: relative; overflow: hidden; margin: 0 0 40px; }
+
+      .hero-map { width: 1600px; height: 900px; background: var(--paper); }
+      .hero-map::before,
+      .hero-map::after {
+        position: absolute;
+        content: "";
+      }
+      .hero-map::before { top: 0; right: 0; bottom: 0; width: 740px; background: #eef1ed; border-left: 1px solid var(--line); }
+      .hero-map::after { right: 115px; bottom: 74px; width: 390px; height: 390px; border: 1px solid #c7cdc8; border-radius: 50%; }
+      .hero-stamp { position: absolute; top: 70px; left: 78px; width: 58px; height: 8px; background: var(--red); }
+      .map-kicker { position: absolute; top: 70px; right: 92px; color: var(--red-dark); font-size: 15px; font-weight: 800; }
+      .map-track { position: absolute; z-index: 2; top: 150px; right: 92px; width: 610px; }
+      .map-node { display: grid; min-height: 108px; margin-top: -1px; grid-template-columns: 82px 1fr 120px; align-items: center; background: rgba(247,247,245,.94); border: 1px solid #c7cdc8; }
+      .map-node span { color: var(--red); font: 700 14px/1 Georgia, serif; text-align: center; }
+      .map-node div { padding: 18px 24px; border-left: 1px solid #c7cdc8; }
+      .map-node strong { display: block; color: var(--ink); font-size: 24px; }
+      .map-node small { display: block; margin-top: 7px; color: var(--muted); font-size: 13px; }
+      .map-node b { display: grid; height: 100%; place-items: center; color: var(--green); border-left: 1px solid #c7cdc8; font-size: 13px; }
+      .map-node.highlight { color: var(--white); background: var(--red); border-color: var(--red); }
+      .map-node.highlight span, .map-node.highlight strong, .map-node.highlight small, .map-node.highlight b { color: var(--white); }
+      .map-node.highlight div, .map-node.highlight b { border-color: rgba(255,255,255,.32); }
+      .map-foot { position: absolute; right: 92px; bottom: 62px; z-index: 3; display: flex; width: 610px; justify-content: space-between; color: var(--muted); font-size: 12px; font-weight: 700; }
+      .map-foot i { display: inline-block; width: 9px; height: 9px; margin-right: 7px; background: var(--green); }
+      .map-foot span:nth-child(2) i { background: var(--yellow); }
+      .map-foot span:nth-child(3) i { background: var(--blue); }
+
+      .product-output { width: 1200px; height: 780px; margin-left: 200px; color: var(--ink); background: var(--white); }
+      .output-top { display: flex; height: 86px; padding: 0 38px; align-items: center; justify-content: space-between; color: var(--white); background: var(--dark); }
+      .output-brand { display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 760; }
+      .output-mark { display: grid; width: 36px; height: 36px; place-items: center; background: var(--red); border-radius: 4px; font-family: Georgia, serif; font-size: 18px; }
+      .output-status { color: #aeb8b2; font-size: 12px; }
+      .output-question { display: grid; min-height: 112px; padding: 22px 38px; grid-template-columns: 112px 1fr; align-items: center; background: #f0f2ef; border-bottom: 1px solid var(--line); }
+      .output-question span { color: var(--red); font-size: 13px; font-weight: 800; }
+      .output-question strong { font: 700 23px/1.55 Georgia, "Songti SC", serif; }
+      .output-grid { display: grid; height: 582px; grid-template-columns: 1fr 1fr; grid-template-rows: 178px 250px 154px; }
+      .output-block { padding: 24px 34px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .output-block:nth-child(2n) { border-right: 0; }
+      .output-block h2 { display: flex; margin: 0 0 14px; align-items: center; gap: 10px; color: var(--ink); font: 700 19px/1.2 Georgia, "Songti SC", serif; }
+      .output-block h2 em { display: grid; width: 26px; height: 26px; place-items: center; color: var(--white); background: var(--red); border-radius: 50%; font: 700 11px/1 Inter, sans-serif; }
+      .output-block p, .output-block li { color: #4f554f; font-size: 13px; line-height: 1.65; }
+      .output-block p { margin: 0; }
+      .output-block ul, .output-block ol { margin: 0; padding-left: 20px; }
+      .output-block li + li { margin-top: 6px; }
+      .output-block.action { grid-column: 1 / 3; padding-right: 44px; }
+      .output-block.action ol { display: grid; padding: 0; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: steps; list-style: none; }
+      .output-block.action li { position: relative; padding-left: 34px; }
+      .output-block.action li::before { position: absolute; top: 1px; left: 0; display: grid; width: 24px; height: 24px; place-items: center; color: var(--ink); background: var(--yellow); border-radius: 3px; counter-increment: steps; content: counter(steps); font-size: 11px; font-weight: 800; }
+      .output-block.risk { grid-column: 1 / 3; border-bottom: 0; background: #faf3f1; }
+      .output-block.risk h2 em { background: var(--green); }
+
+      .social-preview { width: 1280px; height: 640px; margin-left: 160px; color: var(--ink); background: var(--paper); border: 1px solid #e0e2de; }
+      .social-preview::before { position: absolute; top: 0; right: 0; bottom: 0; width: 470px; background: var(--dark); content: ""; }
+      .social-preview::after { position: absolute; right: 75px; bottom: 42px; width: 300px; height: 300px; border: 1px solid #48504b; border-radius: 50%; content: ""; }
+      .social-header { position: absolute; top: 46px; left: 58px; display: flex; align-items: center; gap: 13px; color: var(--red); font-size: 15px; font-weight: 800; }
+      .social-mark { display: grid; width: 42px; height: 42px; place-items: center; color: var(--white); background: var(--red); border-radius: 4px; font: 700 20px/1 Georgia, serif; }
+      .social-main { position: absolute; top: 135px; left: 58px; width: 720px; }
+      .social-main h1 { margin: 0; font: 700 61px/1.06 Georgia, "Songti SC", serif; letter-spacing: 0; }
+      .social-main .subtitle { margin: 30px 0 0; color: var(--red-dark); font-size: 27px; font-weight: 780; }
+      .social-main .description { max-width: 680px; margin: 15px 0 0; color: var(--muted); font-size: 18px; line-height: 1.65; }
+      .social-tags { position: absolute; left: 58px; bottom: 48px; display: flex; gap: 10px; }
+      .social-tags span { padding: 9px 14px; color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: 4px; font-size: 13px; font-weight: 700; }
+      .social-flow { position: absolute; z-index: 2; top: 76px; right: 48px; width: 374px; }
+      .social-flow-title { margin-bottom: 16px; color: var(--yellow); font-size: 13px; font-weight: 800; text-align: right; }
+      .social-step { display: grid; height: 86px; margin-top: -1px; padding: 0 18px; grid-template-columns: 42px 1fr; align-items: center; color: var(--white); border: 1px solid #48504b; background: rgba(23,26,24,.94); }
+      .social-step b { color: var(--yellow); font: 700 13px/1 Georgia, serif; }
+      .social-step strong { font-size: 18px; }
+      .social-step.active { background: var(--red); border-color: var(--red); }
+      .social-footer { position: absolute; z-index: 3; right: 48px; bottom: 44px; color: #aeb8b2; font-size: 12px; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <section class="canvas hero-map" id="hero-map" aria-label="落地页首屏背景图">
+      <div class="hero-stamp"></div>
+      <div class="map-kicker">PRODUCT DECISION LOOP / 01—05</div>
+      <div class="map-track">
+        <div class="map-node"><span>01</span><div><strong>事实与证据</strong><small>用户行为 · 业务数据 · 一线材料</small></div><b>输入</b></div>
+        <div class="map-node highlight"><span>02</span><div><strong>当前核心阻塞</strong><small>解除后能带动其他问题的那个瓶颈</small></div><b>聚焦</b></div>
+        <div class="map-node"><span>03</span><div><strong>主导机制</strong><small>供需 · 价值摩擦 · 流量承接 · 目标激励</small></div><b>判断</b></div>
+        <div class="map-node"><span>04</span><div><strong>最小有效行动</strong><small>MVP · 灰度 · 诊断 · 对齐 · 停止投入</small></div><b>执行</b></div>
+        <div class="map-node"><span>05</span><div><strong>结果与修正</strong><small>加码 · 停止 · 回滚 · 切换打法</small></div><b>更新</b></div>
+      </div>
+      <div class="map-foot"><span><i></i>阶段判断</span><span><i></i>决策信号</span><span><i></i>停止清单</span></div>
+    </section>
+
+    <section class="canvas product-output" id="product-output" aria-label="产品回答样例图">
+      <header class="output-top">
+        <div class="output-brand"><span class="output-mark">决</span><span>Maoxuan Product Agent</span></div>
+        <span class="output-status">中文产品决策 / 样例输出</span>
+      </header>
+      <div class="output-question"><span>用户问题</span><strong>社区 DAU 连续两周下降 15%，运营想加活动拉回来。</strong></div>
+      <div class="output-grid">
+        <section class="output-block">
+          <h2><em>01</em>问题判断</h2>
+          <p>先不要做活动。当前最关键的不是“怎么拉活”，而是确认下滑来自哪类用户、哪个环节，以及什么机制正在主导。</p>
+        </section>
+        <section class="output-block">
+          <h2><em>02</em>原因分析</h2>
+          <ul><li>连续两周下降已经不像普通波动。</li><li>新老用户、渠道、版本、供给和 Push 都能造成同一现象。</li><li>没拆来源就做活动，只会制造短期噪音。</li></ul>
+        </section>
+        <section class="output-block action">
+          <h2><em>03</em>行动建议</h2>
+          <ol><li><strong>24 小时内拆贡献</strong><br>按新老用户、渠道、平台、版本和内容供给拆分下降。</li><li><strong>核对主导群体</strong><br>找贡献最大的 1-2 个群体，核对行为路径和一线反馈。</li><li><strong>按来源选择动作</strong><br>供给问题先修创作者留存；渠道问题再决定是否拉新。</li></ol>
+        </section>
+        <section class="output-block risk">
+          <h2><em>04</em>风险提醒</h2>
+          <p>不要先上全站活动，不要只看总 DAU，也不要把同期竞品动作直接当成因果。先隔离来源，再决定动作。</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="canvas social-preview" id="social-preview" aria-label="GitHub 社交预览图">
+      <div class="social-header"><span class="social-mark">决</span><span>OPEN-SOURCE AGENT SKILL</span></div>
+      <div class="social-main">
+        <h1>Maoxuan<br>Product Agent</h1>
+        <p class="subtitle">从《矛盾论》《实践论》蒸馏的中文产品决策 Agent</p>
+        <p class="description">不讲理论，不引用原文。直接定位核心阻塞，判断阶段与约束，给出下一步最值得执行的方案。</p>
+      </div>
+      <div class="social-tags"><span>36 个真实场景</span><span>Codex</span><span>Claude Code</span><span>Cursor</span></div>
+      <div class="social-flow">
+        <div class="social-flow-title">DECISION ENGINE</div>
+        <div class="social-step"><b>01</b><strong>事实与证据</strong></div>
+        <div class="social-step active"><b>02</b><strong>核心阻塞</strong></div>
+        <div class="social-step"><b>03</b><strong>主导机制</strong></div>
+        <div class="social-step"><b>04</b><strong>最小行动</strong></div>
+        <div class="social-step"><b>05</b><strong>结果修正</strong></div>
+      </div>
+      <div class="social-footer">github.com/atdy/maoxuan-product-agent</div>
+    </section>
+    <script>
+      const requestedAsset = new URLSearchParams(window.location.search).get("asset");
+      if (requestedAsset) {
+        const selected = document.getElementById(requestedAsset);
+        if (selected) {
+          document.querySelectorAll(".canvas").forEach((canvas) => {
+            if (canvas !== selected) canvas.remove();
+          });
+          selected.style.margin = "0";
+          document.body.style.width = `${selected.offsetWidth}px`;
+          document.body.style.background = "transparent";
+        }
+      }
+    </script>
+  </body>
+</html>
