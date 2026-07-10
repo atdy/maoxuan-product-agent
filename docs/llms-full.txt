@@ -5,7 +5,7 @@ Source repository: https://github.com/atdy/maoxuan-product-agent
 Skills directory: https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent
 License: MIT
 Primary language: Simplified Chinese (zh-CN)
-Current release: 1.0.0
+Current release: 1.0.1
 Skill name: product-decision-agent
 
 ## One-sentence definition

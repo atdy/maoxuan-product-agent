@@ -2,6 +2,19 @@
 
 All notable changes to Maoxuan Product Agent are documented here.
 
+## [1.0.1] - 2026-07-10
+
+### Added
+
+- Self-contained author, repository, license, and version metadata for marketplace attribution.
+- A package-level MIT license so standalone Skill distributions retain their terms.
+- Searchable product decision case pages and IndexNow discovery verification.
+
+### Changed
+
+- Reworked `SKILL.md` frontmatter for broader marketplace parser compatibility.
+- Added full upstream links to the maintenance-only methodology audit shipped with the Skill.
+
 ## [1.0.0] - 2026-07-10
 
 ### Added
@@ -14,4 +27,5 @@ All notable changes to Maoxuan Product Agent are documented here.
 - Universal and platform-specific install paths.
 - Chinese GitHub Pages site, English index, machine-readable GEO files, and citation metadata.
 
+[1.0.1]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.1
 [1.0.0]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.0
