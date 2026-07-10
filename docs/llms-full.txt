@@ -3,6 +3,8 @@
 Canonical URL: https://atdy.github.io/maoxuan-product-agent/
 Source repository: https://github.com/atdy/maoxuan-product-agent
 Skills directory: https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent
+Independent listing: https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent
+Community registry: https://github.com/sickn33/agentic-awesome-skills/tree/main/skills/product-decision-agent
 License: MIT
 Primary language: Simplified Chinese (zh-CN)
 Current release: 1.0.1

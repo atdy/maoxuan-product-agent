@@ -2,7 +2,7 @@
 
 ### A Chinese product decision agent distilled from *On Contradiction* and *On Practice*
 
-[中文](README.md) · [Website](https://atdy.github.io/maoxuan-product-agent/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
+[中文](README.md) · [Website](https://atdy.github.io/maoxuan-product-agent/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
 [![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)
@@ -81,6 +81,8 @@ Install into one project instead of the current user account:
 ```
 
 The canonical skill package is [`product-decision-agent/`](product-decision-agent/).
+
+Independent listings are available on [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent), [Agent Skills](https://agent-skills.md/skills/atdy/maoxuan-product-agent/product-decision-agent), and the 42k-star [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills/tree/main/skills/product-decision-agent). Each listing links back to this repository for provenance and security review.
 
 ## Use
 
