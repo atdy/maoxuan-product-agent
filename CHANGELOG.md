@@ -2,6 +2,18 @@
 
 All notable changes to Maoxuan Product Agent are documented here.
 
+## [1.0.3] - 2026-07-10
+
+### Added
+
+- Eight high-intent product decision pages, expanding the searchable case library from four to twelve cases.
+- Visible FAQ sections that match each case page's structured data.
+
+### Changed
+
+- Connected the Chinese and English READMEs, homepage scenarios, case pages, and GitHub Star call to action into one discovery path.
+- Strengthened publication validation for unique metadata, internal links, case counts, JSON-LD coverage, and visible FAQ consistency.
+
 ## [1.0.2] - 2026-07-10
 
 ### Fixed
@@ -33,6 +45,7 @@ All notable changes to Maoxuan Product Agent are documented here.
 - Universal and platform-specific install paths.
 - Chinese GitHub Pages site, English index, machine-readable GEO files, and citation metadata.
 
+[1.0.3]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.3
 [1.0.2]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.2
 [1.0.1]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.1
 [1.0.0]: https://github.com/atdy/maoxuan-product-agent/releases/tag/v1.0.0

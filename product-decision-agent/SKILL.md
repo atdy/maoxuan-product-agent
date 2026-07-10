@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: atdy
   repository: https://github.com/atdy/maoxuan-product-agent
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # 中文产品决策 Agent

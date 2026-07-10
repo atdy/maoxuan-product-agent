@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import re
 import struct
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
@@ -312,6 +313,20 @@ def validate_repository_package() -> None:
 
     readme_en = (ROOT / "README_EN.md").read_text(encoding="utf-8")
     require(f"{CANONICAL}cases/" in readme_en, "English README is missing the public case library")
+
+    skill_source = (ROOT / "product-decision-agent/SKILL.md").read_text(encoding="utf-8")
+    version_match = re.search(r'^  version: "([0-9]+\.[0-9]+\.[0-9]+)"$', skill_source, re.MULTILINE)
+    require(version_match is not None, "Skill metadata is missing a semantic version")
+    version = version_match.group(1)
+    version_files = {
+        "CITATION.cff": f"version: {version}",
+        "CHANGELOG.md": f"## [{version}]",
+        "docs/index.html": f'"softwareVersion": "{version}"',
+        "docs/llms-full.txt": f"Current release: {version}",
+    }
+    for relative_path, marker in version_files.items():
+        source = (ROOT / relative_path).read_text(encoding="utf-8")
+        require(marker in source, f"Release version is inconsistent: {relative_path}")
 
     agent_metadata = (ROOT / "product-decision-agent/agents/openai.yaml").read_text(encoding="utf-8")
     require("allow_implicit_invocation: true" in agent_metadata, "Implicit invocation must stay enabled")
