@@ -2,10 +2,11 @@
 
 ### A Chinese product decision agent distilled from *On Contradiction* and *On Practice*
 
-[中文](README.md) · [Website](https://atdy.github.io/maoxuan-product-agent/) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
+[中文](README.md) · [Website](https://atdy.github.io/maoxuan-product-agent/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [Install](#install) · [Evaluation](evaluation/self_test_report.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
 [![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)
+[![skills.sh](https://img.shields.io/badge/skills.sh-product--decision--agent-111827.svg)](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2f6f4e.svg)](LICENSE)
 
 ![Maoxuan Product Agent social preview](docs/assets/social-preview.png)

@@ -2,11 +2,12 @@
 
 ### 从《矛盾论》《实践论》蒸馏出来的中文产品工作 Agent
 
-[在线介绍](https://atdy.github.io/maoxuan-product-agent/) · [English](README_EN.md) · [安装](#安装) · [真实案例](#回答长什么样) · [设计审计](evaluation/source_reading_audit.md)
+[在线介绍](https://atdy.github.io/maoxuan-product-agent/) · [skills.sh](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent) · [English](README_EN.md) · [安装](#安装) · [真实案例](#回答长什么样) · [设计审计](evaluation/source_reading_audit.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/atdy/maoxuan-product-agent?style=flat&color=c2332d)](https://github.com/atdy/maoxuan-product-agent/stargazers)
 [![Validate skill](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml/badge.svg)](https://github.com/atdy/maoxuan-product-agent/actions/workflows/validate.yml)
 [![GitHub release](https://img.shields.io/github/v/release/atdy/maoxuan-product-agent?color=1f6b4f)](https://github.com/atdy/maoxuan-product-agent/releases/latest)
+[![skills.sh](https://img.shields.io/badge/skills.sh-product--decision--agent-111827.svg)](https://www.skills.sh/atdy/maoxuan-product-agent/product-decision-agent)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2f6f4e.svg)](LICENSE)
 ![Language](https://img.shields.io/badge/Language-中文-cb2b2b.svg)
 ![Agent Skills](https://img.shields.io/badge/Agent_Skills-Compatible-2563eb.svg)
